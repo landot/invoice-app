@@ -54,13 +54,13 @@ export const ButtonContainerStyles = styled.div<{$styles: ButtonType}>`
     }
 `
 
-export function Button(props: { 
+export function StyledButton(props: { 
     text: string, 
     type: ButtonType,
     onClick: () => void 
 }) {
     return (
-        <ButtonContainerStyles $styles={props.type}>
+        <ButtonContainerStyles $styles={props.type} data-testid={'styled-button'}>
             {props.type.includeAddIcon && (
                 <AddIconStyles>
                     <AddIcon />
