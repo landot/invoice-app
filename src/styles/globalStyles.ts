@@ -6,6 +6,8 @@ const GlobalStyle = createGlobalStyle`
         background: #F8F8FB;
     }
 
+    input, textarea, button {font-family: inherit}
+
     *, *::before, *::after {
         margin: 0;
         padding: 0;

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import { ThemeProvider } from "styled-components"
+import { DefaultTheme, ThemeProvider } from "styled-components"
 
-const theme = {
+export const theme: DefaultTheme = {
     colors: {
         brightPurple: "#7C5DFA",
         lightPurple: "#9277FF",
@@ -14,13 +14,14 @@ const theme = {
         mirageBlack: "#141625",
         red: "#EC5757",
         lightRed: "#9277FF",
-        lightGray: "#F8F8FB"
+        lightGray: "#F8F8FB",
+        white: "#FFFFFF",
     },
     weight: {
         normal: '500',
         bold: '700'
     },
-    fontSizes: {
+    fontSize: {
         small: "13px",
         medium: "15px",
         large: "24px",
