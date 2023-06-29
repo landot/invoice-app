@@ -1,0 +1,48 @@
+import { ReactNode } from "react";
+import { ThemeProvider } from "styled-components"
+
+const theme = {
+    colors: {
+        brightPurple: "#7C5DFA",
+        lightPurple: "#9277FF",
+        darkDesaturatedBlue: "#1E2139",
+        darkBlue: "#252945",
+        lightGrayBlue: "#DFE3FA",
+        grayBlue: "#7E88C3",
+        gray: "#888EB0",
+        black: "#0C0E16",
+        mirageBlack: "#141625",
+        red: "#EC5757",
+        lightRed: "#9277FF",
+        lightGray: "#F8F8FB"
+    },
+    weight: {
+        normal: '500',
+        bold: '700'
+    },
+    fontSizes: {
+        small: "13px",
+        medium: "15px",
+        large: "24px",
+        extraLarge: "36px"
+    },
+    lineHeight: {
+       extraSmall: "15px",
+       small: "18px",
+       medium: "22px",
+       large: "24px",
+       extraLarge: "33px",
+    },
+    spacing: {
+        small: "-.1px",
+        medium: "-.25px",
+        large: "-.75px",
+        extraLarge: "-1px"
+    }
+}
+
+const Theme = (props: { children: ReactNode }) => (
+    <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+);
+
+export default Theme;
