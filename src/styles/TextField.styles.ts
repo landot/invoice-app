@@ -7,6 +7,7 @@ export const TextFieldStyles = styled.div`
 
     ${TextVariant} {
         color: ${({ theme }) => theme.colors.grayBlue};
+        margin-bottom: 9px;
     }
 `
 
@@ -24,7 +25,6 @@ export const TextInputStyles = styled.input`
     border-radius: 4px;
     border: ${({ theme }) => `1px solid ${theme.colors.lightGrayBlue}`};
     background: ${({ theme }) => theme.colors.white};
-    margin-top: 9px;
 
     &:focus {
         border: ${({ theme }) => `1px solid ${theme.colors.lightPurple}`};
