@@ -3,6 +3,8 @@ import { vi } from 'vitest';
 import Theme from '../styles/themeProvider';
 import { StyledButton } from './Button';
 
+// todo hover results in a pointer cursor
+// todo svg is hidden if flag is off
 describe('Button', () => {
   it('renders with text', () => {
     const { getByText } = render(
