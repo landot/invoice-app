@@ -16,6 +16,12 @@ declare module 'styled-components' {
         lightRed: string,
         lightGray: string,
         white: string,
+        green: string,
+        greenWithOpacity: string,
+        orange: string,
+        orangeWithOpacity: string,
+        darkGray: string,
+        darkGrayWithOpacity: string,
     },
     weight: {
         normal: string,

@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
  
 const GlobalStyle = createGlobalStyle`
-    html, body, #app, #app>div {
-        height: 100%;
-        background: #F8F8FB;
+    #app {
+        position: relative;
+        height: 100dvh;
     }
 
     input, textarea, button {font-family: inherit}
