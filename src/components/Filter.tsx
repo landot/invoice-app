@@ -14,6 +14,8 @@ export const ArrowStyles = styled(ArrowDownIcon)<{up: boolean}>`
 export const FilterButtonStyles = styled.button``
 
 export const FilterButtonContainerStyles = styled.div`
+    display: inline-block;
+    white-space: nowrap;
     padding: 10px;
     cursor: pointer;
     ${ArrowStyles} {
@@ -40,6 +42,7 @@ export const FilterDropdownItemStyles = styled.div`
     cursor: pointer;
 
     input {
+        cursor: inherit;
         width: 16px;
         height: 16px;
         margin-right: 12px;
@@ -47,6 +50,7 @@ export const FilterDropdownItemStyles = styled.div`
     }
 
     label {
+        cursor: inherit;
         text-transform: capitalize;
     }
 
@@ -82,7 +86,7 @@ export function Filter(props: {
     filters: Status[],
     handleUpdate: React.Dispatch<React.SetStateAction<Status[]>>
 }) {
-    const [showOptions, setShowOptions] = useState(true);
+    const [showOptions, setShowOptions] = useState(false);
     const ref = useClickAway(() => {
         setShowOptions(false);
     });

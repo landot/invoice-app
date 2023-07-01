@@ -3,6 +3,8 @@ import { HeadingL } from "../styles/header/HeadingL.styles"
 import { Text } from "../styles/text/Text.styles"
 import { ButtonType, StyledButton } from "./Button"
 import { ButtonContainerStyles } from "../styles/Button.styles"
+import { Filter, Status } from "./Filter"
+import { useState } from "react"
 
 export const TitleStyles = styled.div`
     width: 100%;
@@ -43,6 +45,8 @@ const buttonType: ButtonType = {
 }
 
 export function Header(props: {invoices: object[], handleFilterUpdate: () => void, handleNewInvoice: () => void}) {
+    const [activeFilters, setActiveFilters] = useState([Status.Draft, Status.Paid, Status.Pending]);
+
     return (
         <HeaderStyles>
             <TitleStyles>
@@ -50,8 +54,7 @@ export function Header(props: {invoices: object[], handleFilterUpdate: () => voi
                 <Text>There are {props.invoices.length} invoices</Text>
             </TitleStyles>
             <ActionStyles>
-                {/* <Filter /> */}
-                <p>filter placeholder</p>
+                <Filter selectedFilters={activeFilters} filters={[Status.Draft, Status.Paid, Status.Pending]} handleUpdate={setActiveFilters} />
                 <StyledButton 
                     text={"New Invoice"} 
                     type={buttonType} 
