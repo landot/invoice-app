@@ -6,6 +6,16 @@ const GlobalStyle = createGlobalStyle`
         height: 100dvh;
     }
 
+    button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
     input, textarea, button {font-family: inherit}
 
     *, *::before, *::after {
