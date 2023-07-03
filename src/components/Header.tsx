@@ -21,7 +21,11 @@ export function Header(props: {invoices: object[], handleFilterUpdate: () => voi
         <HeaderStyles>
             <TitleStyles>
                 <HeadingL>Invoices</HeadingL>
-                <BodyText>There are {props.invoices.length} invoices</BodyText>
+                {props.invoices.length > 0 ? (
+                    <BodyText>There are {props.invoices.length} invoices</BodyText>
+                ): (
+                    <BodyText>No invoices</BodyText>
+                )}
             </TitleStyles>
             <ActionStyles>
                 <Filter selectedFilters={activeFilters} filters={[Status.Draft, Status.Paid, Status.Pending]} handleUpdate={setActiveFilters} />
