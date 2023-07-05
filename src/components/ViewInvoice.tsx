@@ -7,6 +7,7 @@ import { InvoiceData } from "../data/types/Data";
 import { InvoiceStatus } from "./InvoiceStatus";
 import { HeadingM } from "../styles/header/HeadingM.styles";
 import { HeadingS } from "../styles/header/HeadingS.styles";
+import { ReactComponent as BackIcon } from '../assets/icon-arrow-left.svg';
 
 export const ViewInvoiceHeaderLeftStyles = styled.div`
     display: flex;
@@ -113,9 +114,26 @@ export const InvoiceSectionStyles = styled.div`
 
 export const ViewInvoiceBillingInfoStyles = styled.div``
 
+export const GoBackStyles = styled.div`
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    ${HeadingS} {
+        margin-left: 24px;
+    }
+`
+
 export const ViewInvoiceContainerStyles = styled.div`
     width: 100%;
     max-width: 800px;
+
+    ${ViewInvoiceHeaderStyles} {
+        margin-top: 30px;
+    }
 
     ${ViewInvoiceBodyStyles} {
         margin-top: 24px;
@@ -139,9 +157,16 @@ export function ViewInvoice(props: {
     handleEdit: (id: string) => void,
     handleDelete: (id: string) => void,
     handleMarkAsPaid: (id: string) => void,
+    handleGoBack: () => void
 }) {
     return (
         <ViewInvoiceContainerStyles>
+            <GoBackStyles>
+                <BackIcon />
+                <a>
+                    <HeadingS>Go back</HeadingS>
+                </a>
+            </GoBackStyles>
             <ViewInvoiceHeaderStyles>
                 <ViewInvoiceHeaderLeftStyles>
                     <BodyText>Status</BodyText>
