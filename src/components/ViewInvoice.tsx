@@ -8,6 +8,9 @@ import { InvoiceStatus } from "./InvoiceStatus";
 import { HeadingM } from "../styles/header/HeadingM.styles";
 import { HeadingS } from "../styles/header/HeadingS.styles";
 import { ReactComponent as BackIcon } from '../assets/icon-arrow-left.svg';
+import { DestructiveButtonStyle } from "../data/types/DestructiveButtonStyle";
+import { PrimaryButtonStyle } from "../data/types/PrimaryButtonStyle";
+import { SecondaryButtonStyle } from "../data/types/SecondaryButtonStyle";
 
 export const ViewInvoiceHeaderLeftStyles = styled.div`
     display: flex;
@@ -177,11 +180,8 @@ export function ViewInvoice(props: {
                         text='Edit'
                         type={{
                             includeAddIcon: false,
-                            textColor: '#7E88C3',
-                            backgroundColor: '#F9FAFE',
-                            hoverTextColor: '#7E88C3',
-                            hoverBackgroundColor: '#DFE3FA',
-                            width: 'fit-content'
+                            width: 'fit-content',
+                            ...SecondaryButtonStyle
                         }}
                         onClick={() => props.handleEdit(props.invoice.id)}
                     />
@@ -189,11 +189,8 @@ export function ViewInvoice(props: {
                         text='Delete'
                         type={{
                             includeAddIcon: false,
-                            textColor: '#FFFFFF',
-                            backgroundColor: '#EC5757',
-                            hoverTextColor: '#FFFFFF',
-                            hoverBackgroundColor: '#FF9797',
-                            width: 'fit-content'
+                            width: 'fit-content',
+                            ...DestructiveButtonStyle
                         }}
                         onClick={() => props.handleDelete(props.invoice.id)}
                     />
@@ -201,11 +198,8 @@ export function ViewInvoice(props: {
                         text='Mark as Paid'
                         type={{
                             includeAddIcon: false,
-                            textColor: '#FFFFFF',
-                            backgroundColor: '#7C5DFA',
-                            hoverTextColor: '#FFFFFF',
-                            hoverBackgroundColor: '#9277FF',
-                            width: 'fit-content'
+                            width: 'fit-content',
+                            ...PrimaryButtonStyle
                         }}
                         onClick={() => props.handleMarkAsPaid(props.invoice.id)}
                     />

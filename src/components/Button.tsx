@@ -1,12 +1,15 @@
 import { ReactComponent as AddIcon } from '../assets/icon-plus.svg';
 import { ButtonContainerStyles, AddIconStyles, ButtonStyles } from '../styles/Button.styles';
 
-export interface ButtonType {
-    includeAddIcon: boolean;
+export interface ButtonColor {
     textColor: string;
     backgroundColor: string;
     hoverTextColor: string;
     hoverBackgroundColor: string;
+}
+
+export interface ButtonType extends ButtonColor {
+    includeAddIcon: boolean;
     width: 'fit-content' | '100%';
 }
 

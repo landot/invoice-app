@@ -5,14 +5,12 @@ import { HeaderStyles, TitleStyles, ActionStyles } from "../styles/Header.styles
 import { Filter } from "./Filter";
 import { BodyText } from "../styles/text/Text.styles"
 import { Status } from "../data/types/Data";
+import { PrimaryButtonStyle } from "../data/types/PrimaryButtonStyle";
 
 const buttonType: ButtonType = {
     includeAddIcon: true,
-    textColor: 'white',
-    backgroundColor: 'red',
-    hoverTextColor: 'white',
-    hoverBackgroundColor: 'orange',
-    width: 'fit-content'
+    width: 'fit-content',
+    ...PrimaryButtonStyle
 }
 
 export function Header(props: {invoices: object[], handleFilterUpdate: () => void, handleNewInvoice: () => void}) {
