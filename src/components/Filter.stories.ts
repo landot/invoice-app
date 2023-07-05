@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Filter, Status } from './Filter';
+import { Filter } from './Filter';
+import { Status } from '../data/types/Data';
 
 const meta = {
   title: 'Filter',

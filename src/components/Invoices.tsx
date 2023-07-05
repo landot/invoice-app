@@ -1,5 +1,6 @@
-import { InvoiceData, Invoice } from "./Invoice";
+import { Invoice } from "./Invoice";
 import { InvoicesStyles } from "../styles/Invoices.styles";
+import { InvoiceData } from "../data/types/Data";
 
 
 export function Invoices(props: {invoices: InvoiceData[]}) {

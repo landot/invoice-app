@@ -4,15 +4,7 @@ import { HeadingS } from "../styles/header/HeadingS.styles";
 import { BodyText } from "../styles/text/Text.styles";
 import { HeadingSAlt } from "../styles/header/AlternateHeadingS.styles";
 import { InvoiceRowStyles, InvoiceIdCellStyles, InvoiceDateCellStyles, InvoiceContactCellStyles, InvoiceCostCellStyles, InvoiceStatusCellStyles, InvoiceNavigationStyles } from "../styles/Invoice.styles";
-import { Status } from "./Filter";
-
-export interface InvoiceData {
-    id: string;
-    date: string;
-    contact: string;
-    cost: number;
-    status: Status;
-}
+import { InvoiceData } from "../data/types/Data";
 
 export function Invoice(props: {invoice: InvoiceData}) {
     return (
@@ -24,17 +16,17 @@ export function Invoice(props: {invoice: InvoiceData}) {
             </InvoiceIdCellStyles>
             <InvoiceDateCellStyles>
                 <BodyText>
-                    Due  {props.invoice.date}
+                    Due  {props.invoice.paymentDue}
                 </BodyText>
             </InvoiceDateCellStyles>
             <InvoiceContactCellStyles>
                 <BodyText>
-                    {props.invoice.contact}
+                    {props.invoice.clientName}
                 </BodyText>
             </InvoiceContactCellStyles>
             <InvoiceCostCellStyles>
                 <HeadingSAlt>
-                    {`£ ${props.invoice.cost}`}
+                    {`£ ${props.invoice.total}`}
                 </HeadingSAlt> 
             </InvoiceCostCellStyles>
             <InvoiceStatusCellStyles>

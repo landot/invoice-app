@@ -1,15 +1,13 @@
 import styled from "styled-components"
 import { BodyText } from "./text/Text.styles"
+import { BoxCss } from "./Box.styles"
 
 export const InvoiceRowStyles = styled.tr`
-    width: 100%;
+    ${BoxCss}
     height: fit-content;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 8px;
-    background: #FFF;
-    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
     padding: 16px 32px;
 
     ${BodyText} {

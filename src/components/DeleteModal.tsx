@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { HeadingM } from "../styles/header/HeadingM.styles"
 import { TextVariant } from "../styles/text/TextVariant.styles"
 import { StyledButton } from "./Button"
+import { Box } from "../styles/Box.styles"
 
 export const DeleteModalActionsStyles = styled.div`
     display: flex;
@@ -9,12 +10,9 @@ export const DeleteModalActionsStyles = styled.div`
     gap: 8px;
 `
 
-export const DeleteModalStyles = styled.div`
+export const DeleteModalStyles = styled(Box)`
     width: 480px;
-    border-radius: 8px;
     padding: 48px;
-    background: #FFF;
-    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
 
     ${TextVariant} {
         margin-top: 12px;

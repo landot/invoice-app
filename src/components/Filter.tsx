@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ReactComponent as ArrowDownIcon } from '../assets/icon-arrow-down.svg';
 import styled from "styled-components"
 import { useClickAway } from "@uidotdev/usehooks";
+import { Status } from "../data/types/Data";
 
 export const FilterStyles = styled.div`
     position: relative;
@@ -73,12 +74,6 @@ export function FilterDropdownItem(props: {
             <label htmlFor={props.name}>{props.name}</label>
         </FilterDropdownItemStyles>
     )
-}
-
-export enum Status {
-    Draft = 'draft',
-    Pending = 'pending',
-    Paid = 'paid'
 }
 
 export function Filter(props: {

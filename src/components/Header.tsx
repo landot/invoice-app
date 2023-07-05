@@ -2,8 +2,9 @@ import { HeadingL } from "../styles/header/HeadingL.styles";
 import { ButtonType, StyledButton } from "./Button";
 import { useState } from "react";
 import { HeaderStyles, TitleStyles, ActionStyles } from "../styles/Header.styles";
-import { Status, Filter } from "./Filter";
+import { Filter } from "./Filter";
 import { BodyText } from "../styles/text/Text.styles"
+import { Status } from "../data/types/Data";
 
 const buttonType: ButtonType = {
     includeAddIcon: true,
