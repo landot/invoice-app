@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { HeadingM } from "./header/HeadingM.styles";
-import { BodyText } from "./text/Text.styles";
+import { HeadingM } from "../header/HeadingM.styles";
+import { BodyText } from "../text/Text.styles";
 
 export const NoInvoiceStyles = styled.div`
     width: 100%;

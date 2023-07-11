@@ -1,8 +1,8 @@
 import styled from "styled-components"
+import { HeadingS } from "../header/HeadingS.styles"
+import { BodyText } from "../text/Text.styles"
 import { ButtonContainerStyles } from "./Button.styles"
 import { TextInputStyles } from "./TextField.styles"
-import { HeadingS } from "./header/HeadingS.styles"
-import { BodyText } from "./text/Text.styles"
 
 export const ItemNameCellStyles = styled.td`
     width: 50%;

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { LeftOverlayStyles, LeftOverlayContentStyles } from '../styles/LeftOverlay.styles';
+import { LeftOverlayStyles, LeftOverlayContentStyles } from '../styles/components/LeftOverlay.styles';
 
 export function LeftOverlay(props: {
     children: ReactNode,

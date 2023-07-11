@@ -1,6 +1,6 @@
 import styled from "styled-components"
+import { TextVariant } from "../text/TextVariant.styles"
 import { Box } from "./Box.styles"
-import { TextVariant } from "./text/TextVariant.styles"
 
 export const DeleteModalActionsStyles = styled.div`
     display: flex;

@@ -6,7 +6,7 @@ import { ReactComponent as BackIcon } from '../assets/icon-arrow-left.svg';
 import { DestructiveButtonStyle } from "../data/types/DestructiveButtonStyle";
 import { PrimaryButtonStyle } from "../data/types/PrimaryButtonStyle";
 import { SecondaryButtonStyle } from "../data/types/SecondaryButtonStyle";
-import { ViewInvoiceContainerStyles, GoBackStyles, ViewInvoiceHeaderStyles, ViewInvoiceHeaderLeftStyles, ViewInvoiceHeaderRightStyles, ViewInvoiceBodyStyles, ViewInvoiceRefStyles, ViewInvoiceRefIdStyles, ViewInvoiceRefSenderStyles, ViewInvoiceBillingStyles, ViewInvoiceDateStyles, InvoiceSectionStyles, ViewInvoiceBillingInfoStyles, ViewInvoiceItemStyles, InvoiceTableStyles, TableHeaderAlignLeft, TableHeaderAlignCenter, TableHeaderAlignRight, TableCellAlignLeft, TableCellAlignCenter, TableCellAlignRight, AmountDueStyles } from "../styles/ViewInvoice.styles";
+import { ViewInvoiceContainerStyles, GoBackStyles, ViewInvoiceHeaderStyles, ViewInvoiceHeaderLeftStyles, ViewInvoiceHeaderRightStyles, ViewInvoiceBodyStyles, ViewInvoiceRefStyles, ViewInvoiceRefIdStyles, ViewInvoiceRefSenderStyles, ViewInvoiceBillingStyles, ViewInvoiceDateStyles, InvoiceSectionStyles, ViewInvoiceBillingInfoStyles, ViewInvoiceItemStyles, InvoiceTableStyles, TableHeaderAlignLeft, TableHeaderAlignCenter, TableHeaderAlignRight, TableCellAlignLeft, TableCellAlignCenter, TableCellAlignRight, AmountDueStyles } from "../styles/components/ViewInvoice.styles";
 import { HeadingSAlt } from "../styles/header/AlternateHeadingS.styles";
 import { BodyText } from "../styles/text/Text.styles";
 import { StyledButton } from "./Button";

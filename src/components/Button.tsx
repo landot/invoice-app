@@ -1,5 +1,5 @@
 import { ReactComponent as AddIcon } from '../assets/icon-plus.svg';
-import { ButtonContainerStyles, AddIconStyles, ButtonStyles } from '../styles/Button.styles';
+import { ButtonContainerStyles, AddIconStyles, ButtonStyles } from '../styles/components/Button.styles';
 
 export interface ButtonColor {
     textColor: string;

@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { TextVariant } from "./text/TextVariant.styles";
+import { TextVariant } from "../text/TextVariant.styles";
 
 export const DatePickerStyles = styled.div`
     display: flex;

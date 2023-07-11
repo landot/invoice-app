@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import chevronDown from '../assets/icon-arrow-down.svg';
-import { DropdownStyles, SelectedItemStyles, DropdownListStyles, DropdownListItemStyles } from '../styles/Dropdown.styles';
+import { DropdownStyles, SelectedItemStyles, DropdownListStyles, DropdownListItemStyles } from '../styles/components/Dropdown.styles';
 import { TextVariant } from "../styles/text/TextVariant.styles"
 import { useClickAway } from "@uidotdev/usehooks";
 

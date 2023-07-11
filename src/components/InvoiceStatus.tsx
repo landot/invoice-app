@@ -1,5 +1,5 @@
 import { HeadingS } from "../styles/header/HeadingS.styles";
-import { StyledInvoice, Circle } from "../styles/InvoiceStatus.styles";
+import { StyledInvoice, Circle } from "../styles/components/InvoiceStatus.styles";
 
 
 export function InvoiceStatus(props: {type: 'paid' | 'pending' | 'draft'}) {

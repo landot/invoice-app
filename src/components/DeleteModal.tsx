@@ -1,6 +1,6 @@
 import { DestructiveButtonStyle } from "../data/types/DestructiveButtonStyle"
 import { SecondaryButtonStyle } from "../data/types/SecondaryButtonStyle"
-import { DeleteModalStyles, DeleteModalActionsStyles } from "../styles/DeleteModal.styles"
+import { DeleteModalStyles, DeleteModalActionsStyles } from "../styles/components/DeleteModal.styles"
 import { HeadingM } from "../styles/header/HeadingM.styles"
 import { TextVariant } from "../styles/text/TextVariant.styles"
 import { StyledButton } from "./Button"

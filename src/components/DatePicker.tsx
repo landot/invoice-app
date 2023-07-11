@@ -1,5 +1,5 @@
 import DatePicker from "react-datepicker";
-import { DatePickerStyles, DatePickerWrapperStyles } from "../styles/DatePickerWrapper.styles";
+import { DatePickerStyles, DatePickerWrapperStyles } from "../styles/components/DatePickerWrapper.styles";
 import { TextVariant } from "../styles/text/TextVariant.styles";
 import "react-datepicker/dist/react-datepicker.css";
 

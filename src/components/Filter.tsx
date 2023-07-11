@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useClickAway } from "@uidotdev/usehooks";
 import { Status } from "../data/types/Data";
-import { FilterDropdownItemStyles, FilterStyles, FilterButtonContainerStyles, FilterButtonStyles, ArrowStyles, FilterDropdownStyles } from "../styles/Filter.styles";
+import { FilterDropdownItemStyles, FilterStyles, FilterButtonContainerStyles, FilterButtonStyles, ArrowStyles, FilterDropdownStyles } from "../styles/components/Filter.styles";
 
 function FilterDropdownItem(props: {
     name: Status,

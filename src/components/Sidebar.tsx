@@ -1,6 +1,6 @@
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import avatar from '../assets/image-avatar.jpg';
-import { SidebarStyles } from '../styles/Sidebar.styles';
+import { SidebarStyles } from '../styles/components/Sidebar.styles';
 
 export function Sidebar() {
     return (

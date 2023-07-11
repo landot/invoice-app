@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TextVariant } from "../styles/text/TextVariant.styles"
-import { TextFieldStyles, TextInputStyles } from "../styles/TextField.styles";
+import { TextFieldStyles, TextInputStyles } from "../styles/components/TextField.styles";
 
 export function TextField(props: {
     inputType: 'text' | 'int' | 'number',

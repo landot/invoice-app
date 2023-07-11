@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { BodyText } from "./text/Text.styles"
+import { BodyText } from "../text/Text.styles"
 import { BoxCss } from "./Box.styles"
 
 export const InvoiceRowStyles = styled.tr`

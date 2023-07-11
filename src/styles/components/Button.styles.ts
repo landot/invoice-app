@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { ButtonType } from "../components/Button"
+import { ButtonType } from "../../components/Button"
 
 export const AddIconStyles = styled.span`
     width: 32px;

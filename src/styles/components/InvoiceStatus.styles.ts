@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { HeadingS } from "./header/HeadingS.styles"
+import { HeadingS } from "../header/HeadingS.styles"
 
 export const Circle = styled.span<{$type: 'paid' | 'pending' | 'draft'}>`
     width: 8px;

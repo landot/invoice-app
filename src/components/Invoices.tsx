@@ -1,5 +1,5 @@
 import { Invoice } from "./Invoice";
-import { InvoicesStyles } from "../styles/Invoices.styles";
+import { InvoicesStyles } from "../styles/components/Invoices.styles";
 import { InvoiceData } from "../data/types/Data";
 
 

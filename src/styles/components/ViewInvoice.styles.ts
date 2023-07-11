@@ -1,9 +1,9 @@
 import styled from "styled-components"
+import { HeadingSAlt } from "../header/AlternateHeadingS.styles"
+import { HeadingM } from "../header/HeadingM.styles"
+import { HeadingS } from "../header/HeadingS.styles"
+import { BodyText } from "../text/Text.styles"
 import { Box } from "./Box.styles"
-import { HeadingSAlt } from "./header/AlternateHeadingS.styles"
-import { HeadingM } from "./header/HeadingM.styles"
-import { HeadingS } from "./header/HeadingS.styles"
-import { BodyText } from "./text/Text.styles"
 
 export const ViewInvoiceHeaderLeftStyles = styled.div`
     display: flex;

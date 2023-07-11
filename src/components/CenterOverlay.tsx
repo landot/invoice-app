@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { CenterOverlayStyles, CenterOverlayContentStyles } from '../styles/CenterOverlay.styles';
+import { CenterOverlayStyles, CenterOverlayContentStyles } from '../styles/components/CenterOverlay.styles';
 
 export function CenterOverlay(props: {
     children: ReactNode,

@@ -4,7 +4,7 @@ import { BodyText } from "../styles/text/Text.styles"
 import { TextField } from "./TextField"
 import { useState } from "react"
 import { ReactComponent as DeleteIcon } from '../assets/icon-delete.svg';
-import { ItemListStyles, ItemTableStyles, ItemTableRow, ItemNameCellStyles, ItemQuantityCellStyles, ItemPriceCellStyles, ItemTotalCellStyles, ItemDeleteCellStyles } from "../styles/ItemList.styles";
+import { ItemListStyles, ItemTableStyles, ItemTableRow, ItemNameCellStyles, ItemQuantityCellStyles, ItemPriceCellStyles, ItemTotalCellStyles, ItemDeleteCellStyles } from "../styles/components/ItemList.styles";
 import { StyledButton } from "./Button"
 import { SecondaryButtonStyle } from "../data/types/SecondaryButtonStyle"
 

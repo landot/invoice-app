@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { ButtonContainerStyles } from "./Button.styles"
-import { BodyText } from "../styles/text/Text.styles"
+import { BodyText } from "../text/Text.styles"
 
 export const TitleStyles = styled.div`
     width: 100%;

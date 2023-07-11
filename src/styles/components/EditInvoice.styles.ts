@@ -1,9 +1,9 @@
 import styled from "styled-components"
+import { TextFieldStyles } from "./TextField.styles"
+import { HeadingS } from "../header/HeadingS.styles"
+import { ItemListStyles } from "./ItemList.styles"
 import { DatePickerStyles } from "./DatePickerWrapper.styles"
 import { DropdownStyles } from "./Dropdown.styles"
-import { TextFieldStyles } from "./TextField.styles"
-import { HeadingS } from "./header/HeadingS.styles"
-import { ItemListStyles } from "./ItemList.styles"
 
 export const FieldStyles = styled.div`
     display: flex;

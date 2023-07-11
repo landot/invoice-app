@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { TextVariant } from "./text/TextVariant.styles"
+import { TextVariant } from "../text/TextVariant.styles"
 
 export const TextFieldStyles = styled.div`
     width: 100%;
