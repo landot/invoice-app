@@ -47,7 +47,7 @@ export const ItemListStyles = styled.div`
 
     > ${HeadingS} {
         width: fit-content;
-        color: #777F98;
+        color: ${({ theme }) => theme.colors.mediumGray};
         margin-bottom: 14px;
     }
 `
@@ -57,7 +57,7 @@ export const ItemTableStyles = styled.table`
     border-spacing: 16px 0;
 
     th > ${BodyText} {
-        color: #7E88C3;
+        color: ${({ theme }) => theme.colors.grayBlue};
         text-align: left;
     }
 
@@ -65,6 +65,6 @@ export const ItemTableStyles = styled.table`
 
 export const ItemTableRow = styled.tr`
     ${HeadingS} {
-        color: #888EB0;
+        color: ${({ theme }) => theme.colors.gray};
     }
 `

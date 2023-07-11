@@ -22,7 +22,7 @@ export const DatePickerWrapperStyles = createGlobalStyle`
         font-family: 'League Spartan', Sans-Serif;
         border: none;
         border-radius: 8px;
-        background: #FFF;
+        background: ${({ theme }) => theme.colors.white};
         box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0.25);
     }
 
@@ -60,11 +60,11 @@ export const DatePickerWrapperStyles = createGlobalStyle`
     }
 
     .react-datepicker__day {
-        color: #0C0E16;
-        font-size: 15px;
-        font-weight: 700;
-        line-height: 15px;
-        letter-spacing: -0.25px;
+        color: ${({ theme }) => theme.colors.black};
+        font-size: ${({ theme }) => theme.fontSize.medium};
+        font-weight: ${({ theme }) => theme.weight.bold};
+        line-height: ${({ theme }) => theme.lineHeight.extraSmall};
+        letter-spacing: ${({ theme }) => theme.spacing.medium};
 
         &:hover {
             background-color: inherit;
@@ -72,21 +72,20 @@ export const DatePickerWrapperStyles = createGlobalStyle`
     }
 
     .react-datepicker__day--outside-month {
-        color: #0C0E16;
-        font-size: 15px;
-        font-weight: 700;
-        line-height: 15px;
-        letter-spacing: -0.25px;
-        opacity: 0.0814194455742836;
+        color: ${({ theme }) => theme.colors.black};
+        font-size: ${({ theme }) => theme.fontSize.medium};
+        font-weight: ${({ theme }) => theme.weight.bold};
+        line-height: ${({ theme }) => theme.lineHeight.extraSmall};
+        letter-spacing: ${({ theme }) => theme.spacing.medium};
+        opacity: 0.08;
     }
 
     .react-datepicker__day--selected {
-        color: #7C5DFA;
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 15px;
-        letter-spacing: -0.25px;
+        color: ${({ theme }) => theme.colors.brightPurple};
+        font-size: ${({ theme }) => theme.fontSize.medium};
+        font-weight: ${({ theme }) => theme.weight.bold};
+        line-height: ${({ theme }) => theme.lineHeight.extraSmall};
+        letter-spacing: ${({ theme }) => theme.spacing.medium};
         background-color: inherit;
     }
 
@@ -97,8 +96,8 @@ export const DatePickerWrapperStyles = createGlobalStyle`
     .date-picker input {
         outline: none;
         border-radius: 4px;
-        border: 1px solid var(--05, #DFE3FA);
-        background: #FFF;
+        border: ${({ theme }) => `1px solid ${theme.colors.lightGrayBlue}`};
+        background: ${({ theme }) => theme.colors.white};
 
         padding: 0 20px;
         width: 100%;

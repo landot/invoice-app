@@ -11,7 +11,7 @@ export const InvoiceRowStyles = styled.tr`
     padding: 16px 32px;
 
     ${BodyText} {
-        color: #888EB0;
+        color: ${({ theme }) => theme.colors.gray};
     }
 `
 

@@ -1,28 +1,9 @@
-import styled from "styled-components"
+import { DestructiveButtonStyle } from "../data/types/DestructiveButtonStyle"
+import { SecondaryButtonStyle } from "../data/types/SecondaryButtonStyle"
+import { DeleteModalStyles, DeleteModalActionsStyles } from "../styles/DeleteModal.styles"
 import { HeadingM } from "../styles/header/HeadingM.styles"
 import { TextVariant } from "../styles/text/TextVariant.styles"
 import { StyledButton } from "./Button"
-import { Box } from "../styles/Box.styles"
-
-export const DeleteModalActionsStyles = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-`
-
-export const DeleteModalStyles = styled(Box)`
-    width: 480px;
-    padding: 48px;
-
-    ${TextVariant} {
-        margin-top: 12px;
-        color: #888EB0;
-    }
-
-    ${DeleteModalActionsStyles} {
-        margin-top: 14px;
-    }
-`
 
 export function DeleteModal(props: {
     id: string,
@@ -39,11 +20,8 @@ export function DeleteModal(props: {
                     // add correct colors later
                     type={{
                         includeAddIcon: false,
-                        textColor: 'orange',
-                        backgroundColor: 'red',
-                        hoverTextColor: 'green',
-                        hoverBackgroundColor: 'blue',
-                        width: 'fit-content'
+                        width: 'fit-content',
+                        ...SecondaryButtonStyle
                     }}
                     onClick={() => props.handleDelete(props.id)} 
                 />
@@ -52,11 +30,8 @@ export function DeleteModal(props: {
                     // add correct colors later
                     type={{
                         includeAddIcon: false,
-                        textColor: 'orange',
-                        backgroundColor: 'red',
-                        hoverTextColor: 'green',
-                        hoverBackgroundColor: 'blue',
-                        width: 'fit-content'
+                        width: 'fit-content',
+                        ...DestructiveButtonStyle
                     }}
                     onClick={() => props.handleCancel()}
                 />

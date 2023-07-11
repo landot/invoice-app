@@ -10,9 +10,7 @@ export const FieldStyles = styled.div`
     column-gap: 24px;
 `
 
-export const EditHeaderStyles = styled.div`
-    
-`
+export const EditHeaderStyles = styled.div``
 
 export const EditBillStyles = styled.div`
     display: flex;
@@ -34,7 +32,7 @@ export const EditScrollableStyles = styled.div`
 
 export const EditStyles = styled.div`
     border-radius: 0px 20px 20px 0px;
-    background: #FFF;
+    background: ${({ theme }) => theme.colors.white};
     padding: 55px 55px  32px 55px;
     width: 100%;
     display: flex;
@@ -47,7 +45,7 @@ export const EditStyles = styled.div`
 
     & > ${HeadingS} {
         margin-top: 46px;
-        color: #7C5DFA;
+        color: ${({ theme }) => theme.colors.brightPurple};
     }
 
     ${EditBillStyles}, ${ItemListStyles} {

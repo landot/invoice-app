@@ -52,9 +52,9 @@ export const DropdownListItemStyles = styled.div<{selected: boolean}>`
     height: 100%;
     width: 100%;
     font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 23px;
+    font-weight: ${({ theme }) => theme.weight.normal};
+    font-size: ${({ theme }) => theme.fontSize.small};
+    line-height: ${({ theme }) => theme.lineHeight.medium};
     padding: 16px 24px;
 
     color: ${p => p.selected ? p.theme.colors.brightPurple: p.theme.colors.black};

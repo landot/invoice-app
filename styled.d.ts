@@ -10,6 +10,7 @@ declare module 'styled-components' {
         lightGrayBlue: string,
         grayBlue: string,
         gray: string,
+        mediumGray: string,
         black: string,
         mirageBlack: string,
         red: string,

@@ -17,6 +17,6 @@ export const NoInvoiceStyles = styled.div`
     ${BodyText} {
         margin-top: 23px;
         text-align: center;
-        color: #888EB0;
+        color: ${({ theme }) => theme.colors.gray};
     }
 `
