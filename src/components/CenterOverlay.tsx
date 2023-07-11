@@ -6,7 +6,7 @@ export function CenterOverlay(props: {
     handleClose: () => void
 }) {
     return (
-        <CenterOverlayStyles onClick={props.handleClose} data-testid='overlay'>
+        <CenterOverlayStyles onClick={props.handleClose} data-testid='center-overlay'>
             <CenterOverlayContentStyles onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
                 {props.children}
             </CenterOverlayContentStyles>

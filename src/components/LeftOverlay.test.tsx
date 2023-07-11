@@ -1,21 +1,21 @@
 import { fireEvent, render } from '@testing-library/react';
 import Theme from '../styles/themeProvider';
-import { CenterOverlay } from './CenterOverlay';
+import { LeftOverlay } from './LeftOverlay';
 import { vi } from 'vitest';
 
-describe('CenterOverlay', () => {
+describe('LeftOverlay', () => {
   it('renders with text', () => {
     const mockOnClick = vi.fn()
     const { getByText } = render(
       <Theme>
-        <CenterOverlay children={(
+        <LeftOverlay children={(
                 <div style={{ backgroundColor: 'white', width: '500px', height: '500px', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                    <p>this is a centered component in the overlay</p>
+                    <p>this is a left positioned component in the overlay</p>
                 </div>
             )} handleClose={mockOnClick()}/> 
       </Theme>
     );
-    const text = getByText('this is a centered component in the overlay');
+    const text = getByText('this is a left positioned component in the overlay');
     expect(text).toBeInTheDocument();
   });
 
@@ -23,17 +23,17 @@ describe('CenterOverlay', () => {
     const mockOnClick = vi.fn()
     const { getByTestId } = render(
       <Theme>
-        <CenterOverlay 
+        <LeftOverlay 
             children={(
                 <div style={{ backgroundColor: 'white', width: '500px', height: '500px', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                    <p>this is a centered component in the overlay</p>
+                    <p>this is a left positioned component in the overlay</p>
                 </div>
             )} 
             handleClose={mockOnClick()}
         /> 
       </Theme>
     );
-    const overlayContainer = getByTestId('center-overlay');
+    const overlayContainer = getByTestId('left-overlay');
     fireEvent.click(overlayContainer);
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
