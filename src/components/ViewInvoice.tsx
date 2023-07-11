@@ -18,6 +18,15 @@ export function ViewInvoice(props: {
     handleMarkAsPaid: (id: string) => void,
     handleGoBack: () => void
 }) {
+
+    function getDateString(timestamp: number): string {
+        return new Intl.DateTimeFormat("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+          }).format(new Date(timestamp));
+    }
+
     return (
         <ViewInvoiceContainerStyles>
             <GoBackStyles>
@@ -78,11 +87,11 @@ export function ViewInvoice(props: {
                     <ViewInvoiceDateStyles>
                         <InvoiceSectionStyles>
                             <BodyText>Invoice Date</BodyText>
-                            <HeadingSAlt>{props.invoice.createdAt}</HeadingSAlt>
+                            <HeadingSAlt>{getDateString(props.invoice.createdAt)}</HeadingSAlt>
                         </InvoiceSectionStyles>
                         <InvoiceSectionStyles>
                             <BodyText>Payment Due</BodyText>
-                            <HeadingSAlt>{props.invoice.createdAt}</HeadingSAlt>
+                            <HeadingSAlt>{getDateString(props.invoice.paymentDue)}</HeadingSAlt>
                         </InvoiceSectionStyles>
                     </ViewInvoiceDateStyles>
                     <ViewInvoiceBillingInfoStyles>
