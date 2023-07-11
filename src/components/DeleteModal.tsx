@@ -17,7 +17,6 @@ export function DeleteModal(props: {
             <DeleteModalActionsStyles>
                 <StyledButton
                     text='Cancel'
-                    // add correct colors later
                     type={{
                         includeAddIcon: false,
                         width: 'fit-content',
@@ -27,7 +26,6 @@ export function DeleteModal(props: {
                 />
                 <StyledButton 
                     text='Delete'
-                    // add correct colors later
                     type={{
                         includeAddIcon: false,
                         width: 'fit-content',
