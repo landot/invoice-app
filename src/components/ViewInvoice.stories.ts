@@ -18,8 +18,8 @@ export const Primary: Story = {
     args: {
         invoice: {
             "id": "RT3080",
-            "createdAt": "2021-08-18",
-            "paymentDue": "2021-08-19",
+            "createdAt": 1629321408000,
+            "paymentDue": 1629407808000,
             "description": "Re-branding",
             "paymentTerms": 1,
             "clientName": "Jensen Huang",

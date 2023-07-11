@@ -19,7 +19,7 @@ export function StyledButton(props: {
     onClick: () => void 
 }) {
     return (
-        <ButtonContainerStyles $styles={props.type} data-testid={'styled-button'}>
+        <ButtonContainerStyles $styles={props.type} data-testid={'styled-button'} onClick={props.onClick}>
             {props.type.includeAddIcon && (
                 <AddIconStyles>
                     <AddIcon />

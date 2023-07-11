@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { TextVariant } from "./text/TextVariant.styles"
 
 export const DropdownStyles = styled.div`
-    width: 240px;
+    width: 100%;
     height: 48px;
     position: relative;
     cursor: pointer;

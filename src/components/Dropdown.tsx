@@ -2,40 +2,52 @@ import { useState } from 'react';
 import chevronDown from '../assets/icon-arrow-down.svg';
 import { DropdownStyles, SelectedItemStyles, DropdownListStyles, DropdownListItemStyles } from '../styles/Dropdown.styles';
 import { TextVariant } from "../styles/text/TextVariant.styles"
+import { useClickAway } from "@uidotdev/usehooks";
 
+export interface DropdownItem {
+    name: string;
+    value: number;
+}
 
 export function Dropdown(props: {
     title: string,
-    values: string[],
-    selectedValue: string, 
-    handleChange: (status: string) => void
+    data: DropdownItem[],
+    selectedValue: number, 
+    handleChange: (status: number) => void
 }) {
     const [selectedValue, setSelectedValue] = useState(props.selectedValue);
     const [showDropdownItems, setShowDropdownItems] = useState(false);
-
-    function handleDropdownUpdate(newStatus: string) {
-        setSelectedValue(newStatus);
+    const ref = useClickAway(() => {
         setShowDropdownItems(false);
-        props.handleChange(newStatus);
+    });
+
+    function handleDropdownUpdate(value: number) {
+        setSelectedValue(value);
+        setShowDropdownItems(false);
+        props.handleChange(value);
+    }
+
+    function getNameForValue(value: number): string {
+        return props.data.filter(item => item.value === value)[0].name;
     }
     
     return (
-        <DropdownStyles>
+        <DropdownStyles ref={ref}>
             <TextVariant>{props.title}</TextVariant>
             <SelectedItemStyles data-testid={'selected-value'} open={showDropdownItems} onClick={() => setShowDropdownItems(prev => !prev)}>
-                <p>{selectedValue}</p>
+                <p>{getNameForValue(selectedValue)}</p>
                 <img src={chevronDown} alt="dropdown arrow" />
             </SelectedItemStyles>
             {showDropdownItems && (
                 <DropdownListStyles>
-                    {props.values.map((value, index) => (
+                    {props.data.map((data: DropdownItem, index) => (
                         <DropdownListItemStyles 
                             data-testid={`option-${index}`} 
                             key={index} 
-                            selected={selectedValue === value}
-                            onClick={() => handleDropdownUpdate(value)}
+                            selected={selectedValue === data.value}
+                            onClick={() => handleDropdownUpdate(data.value)}
                         >
-                            {value}
+                            {data.name}
                         </DropdownListItemStyles>
                     ))}
                 </DropdownListStyles>

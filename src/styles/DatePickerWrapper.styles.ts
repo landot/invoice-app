@@ -4,6 +4,7 @@ import { TextVariant } from "./text/TextVariant.styles";
 export const DatePickerStyles = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     ${TextVariant} {
         color: ${({ theme }) => theme.colors.grayBlue};
@@ -13,7 +14,7 @@ export const DatePickerStyles = styled.div`
 
 export const DatePickerWrapperStyles = createGlobalStyle`
     .date-picker {
-        width: 240px;
+        width: 100%;
         height: 48px;
     }
 

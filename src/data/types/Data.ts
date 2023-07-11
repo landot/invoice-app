@@ -6,8 +6,8 @@ export enum Status {
 
 export interface InvoiceData {
     id:            string;
-    createdAt:     string;
-    paymentDue:    string;
+    createdAt:     number;
+    paymentDue:    number;
     description:   string;
     paymentTerms:  number;
     clientName:    string;

@@ -8,10 +8,14 @@ describe('Dropdown', () => {
     const { getByText } = render(
       <Theme>
         <Dropdown 
-            title={'Payment Terms'}
-            values={['1', '2', '3']}
-            selectedValue={'2'}
-            handleChange={() => null}
+          title='Payment Terms'
+          data={[
+            {name: '1', value: 1},
+            {name: '2', value: 2},
+            {name: '3', value: 3},
+          ]}
+          selectedValue={2}
+          handleChange={() => null}
         />
       </Theme>
     );
@@ -27,8 +31,12 @@ describe('Dropdown', () => {
       <Theme>
         <Dropdown 
             title={'Payment Terms'}
-            values={['test1', 'test2', 'test3']}
-            selectedValue={'test1'}
+            data={[
+              { name: 'test1', value: 0 },
+              { name: 'test2', value: 1 },
+              { name: 'test3', value: 2 },
+            ]}
+            selectedValue={0}
             handleChange={mockChange}
         />
       </Theme>

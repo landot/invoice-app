@@ -19,8 +19,8 @@ export const Default: Story = {
     invoices: [
       {
         "id": "XM9141",
-        "createdAt": "2021-08-21",
-        "paymentDue": "2021-09-20",
+        "createdAt": 1629321408000,
+        "paymentDue": 1629407808000,
         "description": "Graphic Design",
         "paymentTerms": 30,
         "clientName": "Alex Grim",
@@ -56,8 +56,8 @@ export const Default: Story = {
       },
       {
         "id": "RG0314",
-        "createdAt": "2021-09-24",
-        "paymentDue": "2021-10-01",
+        "createdAt": 1629580608000,
+        "paymentDue": 1629494208000,
         "description": "Website Redesign",
         "paymentTerms": 7,
         "clientName": "John Morrison",

@@ -7,7 +7,7 @@ describe('TextField', () => {
   it('renders with title', () => {
     const { getByText } = render(
       <Theme>
-        <TextField title={'test'} />
+        <TextField inputType='text' title={'test'} value=''/>
       </Theme>
     );
     const text = getByText('test');
@@ -17,7 +17,7 @@ describe('TextField', () => {
   it('entering text updates input text', () => {
     const { getByTestId } = render(
       <Theme>
-        <TextField title={'test'} />
+        <TextField inputType='text' title={'test'} value='' />
       </Theme>
     );
     const input = getByTestId('text-input');

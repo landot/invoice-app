@@ -10,7 +10,7 @@ describe('DatePicker', () => {
       <Theme>
         <StyledDatePicker 
             title={'date picker title'}
-            selectedDate={new Date('Jun 30 2023')} 
+            selectedDate={new Date('Jun 30 2023').getTime()} 
             handleChange={mockChange}
         />
       </Theme>
