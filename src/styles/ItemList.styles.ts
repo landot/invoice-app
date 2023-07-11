@@ -47,14 +47,14 @@ export const ItemListStyles = styled.div`
 
     > ${HeadingS} {
         width: fit-content;
-        margin: 0 16px;
         color: #777F98;
+        margin-bottom: 14px;
     }
 `
 
 export const ItemTableStyles = styled.table`
     width: 100%;
-    border-spacing: 16px 18px;
+    border-spacing: 16px 0;
 
     th > ${BodyText} {
         color: #7E88C3;
