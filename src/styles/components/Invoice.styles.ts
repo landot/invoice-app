@@ -9,6 +9,7 @@ export const InvoiceRowStyles = styled.tr`
     justify-content: space-between;
     align-items: center;
     padding: 16px 32px;
+    cursor: pointer;
 
     ${BodyText} {
         color: ${({ theme }) => theme.colors.gray};
@@ -35,4 +36,5 @@ export const InvoiceStatusCellStyles = styled.td`
 `
 export const InvoiceNavigationStyles = styled.td`
     width: 20px;
+    text-align: right;
 `

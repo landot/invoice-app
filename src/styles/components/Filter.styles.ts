@@ -50,6 +50,7 @@ export const FilterDropdownItemStyles = styled.div`
     label {
         cursor: inherit;
         text-transform: capitalize;
+        width: 100%;
     }
 
     input[type=checkbox]:not(:checked):before {

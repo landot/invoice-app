@@ -22,7 +22,7 @@ export function DeleteModal(props: {
                         width: 'fit-content',
                         ...SecondaryButtonStyle
                     }}
-                    onClick={() => props.handleDelete(props.id)} 
+                    onClick={() => props.handleCancel()}
                 />
                 <StyledButton 
                     text='Delete'
@@ -31,7 +31,7 @@ export function DeleteModal(props: {
                         width: 'fit-content',
                         ...DestructiveButtonStyle
                     }}
-                    onClick={() => props.handleCancel()}
+                    onClick={() => props.handleDelete(props.id)} 
                 />
             </DeleteModalActionsStyles>
         </DeleteModalStyles>

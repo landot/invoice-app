@@ -21,7 +21,9 @@ export const LeftOverlayContentStyles = styled.div`
     position: relative;
     overflow-y: auto;
     height: 100dvh;
-    width: 50%;
+    width: 80%;
+    min-width: 400px;
+    max-width: 700px;
     border-radius: 6px;
 
     & > * {

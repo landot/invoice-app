@@ -1,10 +1,12 @@
 import styled from "styled-components"
-import { Header } from "../../components/Header"
-import { Invoices } from "../../components/Invoices"
-import { InvoiceData, Status } from "../../data/types/Data"
+import { Header } from "../components/Header"
+import { Invoices } from "../components/Invoices"
+import { InvoiceData, Status } from "../data/types/Data"
 import { Page } from "./Page"
-import { InvoicesStyles } from "../components/Invoices.styles"
+import { InvoicesStyles } from "../styles/components/Invoices.styles"
 import { useState } from "react"
+import { EditInvoice } from "../components/EditInvoice"
+import { LeftOverlay } from "../components/LeftOverlay"
 
 export const InvoicesPageStyles = styled.div`
 
@@ -84,13 +86,22 @@ export function InvoicesPage() {
     }]
     const [invoices, _setShowInvoices] = useState<InvoiceData[]>(tempData);
     const [filters, setFilters] = useState<Status[]>([Status.Draft, Status.Paid, Status.Pending]);
-    const [_showNewInvoice, setShowNewInvoice] = useState(false);
+    const [showNewInvoice, setShowNewInvoice] = useState(false);
     const filteredInvoices = invoices.filter(invoice => filters.includes(invoice.status));
 
     return (
         <Page>
             <InvoicesPageStyles>
-                {/* todo add in new invoice section */}
+                {showNewInvoice && (
+                    <LeftOverlay handleClose={() => null}>
+                        <EditInvoice 
+                            prefill={tempData[0]} 
+                            handleCancel={() => setShowNewInvoice(false)} 
+                            // todo add in save logic
+                            handleSave={() => null} 
+                        />
+                    </LeftOverlay>
+                )}
                 <Header 
                     invoices={filteredInvoices} 
                     activeFilters={filters}

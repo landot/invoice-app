@@ -28,7 +28,7 @@ describe('DeleteModal', () => {
         <DeleteModal 
             id={'asdf'} 
             handleDelete={mockOnDeleteClick} 
-            handleCancel={mockOnCancelClick()} 
+            handleCancel={mockOnCancelClick} 
         />
       </Theme>
     );
@@ -44,7 +44,7 @@ describe('DeleteModal', () => {
       <Theme>
         <DeleteModal 
             id={'asdf'} 
-            handleDelete={mockOnDeleteClick()} 
+            handleDelete={mockOnDeleteClick} 
             handleCancel={mockOnCancelClick} 
         />
       </Theme>

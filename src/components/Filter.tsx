@@ -9,8 +9,8 @@ function FilterDropdownItem(props: {
     onClick: () => void
 }) {
     return (
-        <FilterDropdownItemStyles onClick={props.onClick}>
-            <input id={props.name} type="checkbox" checked={props.selected} value={props.name} />
+        <FilterDropdownItemStyles>
+            <input id={props.name} type="checkbox" defaultChecked={props.selected} value={props.name} onChange={() => props.onClick()} />
             <label htmlFor={props.name}>{props.name}</label>
         </FilterDropdownItemStyles>
     )

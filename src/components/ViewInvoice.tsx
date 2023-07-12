@@ -24,7 +24,7 @@ export function ViewInvoice(props: {
         <ViewInvoiceContainerStyles>
             <GoBackStyles>
                 <BackIcon />
-                <a>
+                <a onClick={props.handleGoBack}>
                     <HeadingS>Go back</HeadingS>
                 </a>
             </GoBackStyles>

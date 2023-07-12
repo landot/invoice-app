@@ -35,6 +35,7 @@ export const EditStyles = styled.div`
     background: ${({ theme }) => theme.colors.white};
     padding: 55px 55px  32px 55px;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -28,7 +28,7 @@ export function Header(props: {invoices: InvoiceData[], activeFilters: Status[],
                 <StyledButton 
                     text={"New Invoice"} 
                     type={buttonType} 
-                    onClick={() => null} 
+                    onClick={props.handleNewInvoice} 
                 />
             </ActionStyles>
         </HeaderStyles>
