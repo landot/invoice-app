@@ -94,11 +94,11 @@ export function InvoicesPage() {
             <InvoicesPageStyles>
                 {showNewInvoice && (
                     <LeftOverlay handleClose={() => null}>
-                        <EditInvoice 
-                            prefill={tempData[0]} 
+                        <EditInvoice
+                            type='add'
                             handleCancel={() => setShowNewInvoice(false)} 
                             // todo add in save logic
-                            handleSave={() => null} 
+                            handleSave={() => null}
                         />
                     </LeftOverlay>
                 )}

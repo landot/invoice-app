@@ -65,7 +65,12 @@ export function ViewInvoicePage() {
                 )}
                 {showEdit && (
                     <LeftOverlay handleClose={() => null}>
-                        <EditInvoice prefill={tempData} handleSave={() => null} handleCancel={() => setShowEdit(false)} />
+                        <EditInvoice 
+                            type='edit'
+                            prefill={tempData} 
+                            handleSave={() => null} 
+                            handleCancel={() => setShowEdit(false)} 
+                        />
                     </LeftOverlay>
                 )}
                 <ViewInvoice 

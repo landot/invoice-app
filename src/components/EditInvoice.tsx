@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { InvoiceData, Item } from "../data/types/Data";
+import { InvoiceData, Item, Status } from "../data/types/Data";
 import { HeadingM } from "../styles/header/HeadingM.styles";
 import { TextField } from "./TextField";
 import { Dropdown } from "./Dropdown";
@@ -11,14 +11,61 @@ import { HeadingS } from "../styles/header/HeadingS.styles";
 import update from 'immutability-helper';
 import { ItemList } from "./ItemList";
 import { EditStyles, EditHeaderStyles, EditScrollableStyles, EditBillStyles, FieldStyles, EditActions } from "../styles/components/EditInvoice.styles";
+import { getUUID } from "../utils/getUUID";
+import { DarkButtonStyle } from "../data/types/DarkButtonStyles";
+import styled from "styled-components";
+
+
+export const AddActionButtonStyles = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+`
+
+export const AddSaveButtonStyles = styled.div`
+    display: flex;
+    gap: 8px;
+`
 
 
 export function EditInvoice(props: {
-    prefill: InvoiceData,
+    type: 'edit' | 'add',
+    prefill?: InvoiceData,
     handleCancel: () => void,
-    handleSave: () => void,
+    handleSave: () => void
 }) {
-    const [invoiceData, setInvoiceData] = useState<InvoiceData>(props.prefill);
+    const emptyInvoice: InvoiceData = {
+        id: getUUID(),
+        createdAt: new Date().getTime(),
+        paymentTerms: 1,
+        paymentDue: new Date().getTime() + 86400000,
+        description: '',
+        clientName: '',
+        clientEmail: '',
+        status: Status.Draft,
+        senderAddress: {
+            street: '',
+            city: '',
+            postCode: '',
+            country: ''
+        },
+        clientAddress: {
+            street: '',
+            city: '',
+            postCode: '',
+            country: ''
+        },
+        items: [
+            {
+                name: '',
+                quantity: 0,
+                price: 0,
+                total: 0
+            }
+        ],
+        total: 0
+    }
+    const [invoiceData, setInvoiceData] = useState<InvoiceData>(props.prefill || emptyInvoice);
 
     // function validate(): boolean {
     //     return true;
@@ -56,7 +103,7 @@ export function EditInvoice(props: {
     return (
         <EditStyles>
             <EditHeaderStyles>
-                <HeadingM>Edit #{invoiceData.id}</HeadingM>
+                <HeadingM>{props.type === 'add' ? 'New Invoice': `Edit #${invoiceData.id}`}</HeadingM>
             </EditHeaderStyles>
             <EditScrollableStyles>
                 <EditBillStyles>
@@ -118,24 +165,61 @@ export function EditInvoice(props: {
                 <ItemList items={invoiceData.items} handleItemUpdate={handleItemChange} />
             </EditScrollableStyles>
             <EditActions>
-                <StyledButton 
-                    text='Cancel' 
-                    type={{
-                        includeAddIcon: false,
-                        width: 'fit-content',
-                        ...SecondaryButtonStyle
-                    }} 
-                    onClick={props.handleCancel}
-                />
-                <StyledButton 
-                    text='Save Changes' 
-                    type={{
-                        includeAddIcon: false,
-                        width: 'fit-content',
-                        ...PrimaryButtonStyle
-                    }} 
-                    onClick={props.handleSave}
-                />
+                {props.type === 'edit' && (
+                    <>
+                        <StyledButton 
+                            text='Cancel' 
+                            type={{
+                                includeAddIcon: false,
+                                width: 'fit-content',
+                                ...SecondaryButtonStyle
+                            }} 
+                            onClick={props.handleCancel}
+                        />
+                        <StyledButton 
+                            text='Save Changes' 
+                            type={{
+                                includeAddIcon: false,
+                                width: 'fit-content',
+                                ...PrimaryButtonStyle
+                            }} 
+                            onClick={props.handleSave}
+                        />
+                    </>
+                )}
+                {props.type === 'add' && (
+                    <AddActionButtonStyles>
+                        <StyledButton 
+                            text='Discard' 
+                            type={{
+                                includeAddIcon: false,
+                                width: 'fit-content',
+                                ...SecondaryButtonStyle
+                            }} 
+                            onClick={props.handleCancel}
+                        />
+                        <AddSaveButtonStyles>
+                            <StyledButton 
+                                text='Save as Draft' 
+                                type={{
+                                    includeAddIcon: false,
+                                    width: 'fit-content',
+                                    ...DarkButtonStyle
+                                }} 
+                                onClick={props.handleSave}
+                            />
+                            <StyledButton 
+                                text='Save & Send' 
+                                type={{
+                                    includeAddIcon: false,
+                                    width: 'fit-content',
+                                    ...PrimaryButtonStyle
+                                }} 
+                                onClick={props.handleSave}
+                            />
+                        </AddSaveButtonStyles>
+                    </AddActionButtonStyles>
+                )}
             </EditActions>
         </EditStyles>
     )
