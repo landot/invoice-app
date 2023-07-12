@@ -25,7 +25,7 @@ export function ViewInvoicePage() {
             <ViewInvoicePageStyles>
                 {showDelete && (
                     <CenterOverlay handleClose={() => setShowDelete(false)}>
-                        <DeleteModal id={invoice.id} handleDelete={() => null} hideModal={() => setShowDelete(false)} />
+                        <DeleteModal id={invoice.id} hideModal={() => setShowDelete(false)} />
                     </CenterOverlay>
                 )}
                 {showEdit && (

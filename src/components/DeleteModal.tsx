@@ -4,12 +4,22 @@ import { DeleteModalStyles, DeleteModalActionsStyles } from "../styles/component
 import { HeadingM } from "../styles/header/HeadingM.styles"
 import { TextVariant } from "../styles/text/TextVariant.styles"
 import { StyledButton } from "./Button"
+import { useAppDispatch } from "../../app/hooks";
+import { deleteInvoice } from "../../features/invoice/invoiceSlice"
+import { useNavigate } from "react-router-dom"
 
 export function DeleteModal(props: {
     id: string,
-    handleDelete: (id: string) => void,
     hideModal: () => void
 }) {
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
+    function handleDelete() {
+        dispatch(deleteInvoice(props.id));
+        navigate('/');
+    }
+
     return (
         <DeleteModalStyles>
             <HeadingM>Confirm Deletion</HeadingM>
@@ -31,7 +41,7 @@ export function DeleteModal(props: {
                         width: 'fit-content',
                         ...DestructiveButtonStyle
                     }}
-                    onClick={() => props.handleDelete(props.id)} 
+                    onClick={handleDelete} 
                 />
             </DeleteModalActionsStyles>
         </DeleteModalStyles>
