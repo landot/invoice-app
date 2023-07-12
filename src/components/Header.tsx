@@ -1,10 +1,9 @@
 import { HeadingL } from "../styles/header/HeadingL.styles";
 import { ButtonType, StyledButton } from "./Button";
-import { useState } from "react";
 import { HeaderStyles, TitleStyles, ActionStyles } from "../styles/components/Header.styles";
 import { Filter } from "./Filter";
 import { BodyText } from "../styles/text/Text.styles"
-import { Status } from "../data/types/Data";
+import { InvoiceData, Status } from "../data/types/Data";
 import { PrimaryButtonStyle } from "../data/types/PrimaryButtonStyle";
 
 const buttonType: ButtonType = {
@@ -13,9 +12,7 @@ const buttonType: ButtonType = {
     ...PrimaryButtonStyle
 }
 
-export function Header(props: {invoices: object[], handleFilterUpdate: () => void, handleNewInvoice: () => void}) {
-    const [activeFilters, setActiveFilters] = useState([Status.Draft, Status.Paid, Status.Pending]);
-
+export function Header(props: {invoices: InvoiceData[], activeFilters: Status[], handleFilterUpdate: (updatedFilters: Status[]) => void, handleNewInvoice: () => void}) {
     return (
         <HeaderStyles>
             <TitleStyles>
@@ -27,7 +24,7 @@ export function Header(props: {invoices: object[], handleFilterUpdate: () => voi
                 )}
             </TitleStyles>
             <ActionStyles>
-                <Filter selectedFilters={activeFilters} filters={[Status.Draft, Status.Paid, Status.Pending]} handleUpdate={setActiveFilters} />
+                <Filter selectedFilters={props.activeFilters} filters={[Status.Draft, Status.Paid, Status.Pending]} handleUpdate={(updatedFilters: Status[]) => props.handleFilterUpdate(updatedFilters)} />
                 <StyledButton 
                     text={"New Invoice"} 
                     type={buttonType} 

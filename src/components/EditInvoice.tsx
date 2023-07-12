@@ -9,8 +9,8 @@ import { PrimaryButtonStyle } from "../data/types/PrimaryButtonStyle";
 import { SecondaryButtonStyle } from "../data/types/SecondaryButtonStyle";
 import { HeadingS } from "../styles/header/HeadingS.styles";
 import update from 'immutability-helper';
-import { EditStyles, EditHeaderStyles, EditScrollableStyles, EditBillStyles, FieldStyles, EditActions } from "../styles/components/EditInvoice.styles";
 import { ItemList } from "./ItemList";
+import { EditStyles, EditHeaderStyles, EditScrollableStyles, EditBillStyles, FieldStyles, EditActions } from "../styles/components/EditInvoice.styles";
 
 
 export function EditInvoice(props: {

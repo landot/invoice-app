@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { ReactComponent as ArrowDownIcon } from '../assets/icon-arrow-down.svg';
+import { ReactComponent as ArrowDownIcon } from '../../assets/icon-arrow-down.svg';
 
 export const FilterStyles = styled.div`
     position: relative;

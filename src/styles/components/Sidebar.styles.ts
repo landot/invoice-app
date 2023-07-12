@@ -13,7 +13,7 @@ export const SidebarStyles = styled.div`
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        margin: 0 24px 0 0;
+        margin: 0 0 24px 0;
     }
 
     @media (max-width: 800px) {
@@ -25,6 +25,7 @@ export const SidebarStyles = styled.div`
         img {
             width: 32px;
             height: 32px;
+            margin: 0 24px 0 0;
         }
         svg {
             width: 80px;

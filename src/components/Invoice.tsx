@@ -5,6 +5,7 @@ import { BodyText } from "../styles/text/Text.styles";
 import { HeadingSAlt } from "../styles/header/AlternateHeadingS.styles";
 import { InvoiceRowStyles, InvoiceIdCellStyles, InvoiceDateCellStyles, InvoiceContactCellStyles, InvoiceCostCellStyles, InvoiceStatusCellStyles, InvoiceNavigationStyles } from "../styles/components/Invoice.styles";
 import { InvoiceData } from "../data/types/Data";
+import { getDateStringForTimestamp } from "../utils/getDateStringForTimestamp";
 
 export function Invoice(props: {invoice: InvoiceData}) {
     return (
@@ -16,7 +17,7 @@ export function Invoice(props: {invoice: InvoiceData}) {
             </InvoiceIdCellStyles>
             <InvoiceDateCellStyles>
                 <BodyText>
-                    Due  {props.invoice.paymentDue}
+                    Due  {getDateStringForTimestamp(props.invoice.paymentDue)}
                 </BodyText>
             </InvoiceDateCellStyles>
             <InvoiceContactCellStyles>
