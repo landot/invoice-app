@@ -14,7 +14,8 @@ export const LeftOverlayStyles = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;  
 `
 
 export const LeftOverlayContentStyles = styled.div`

@@ -8,7 +8,7 @@ import { StyledButton } from "./Button"
 export function DeleteModal(props: {
     id: string,
     handleDelete: (id: string) => void,
-    handleCancel: () => void
+    hideModal: () => void
 }) {
     return (
         <DeleteModalStyles>
@@ -22,7 +22,7 @@ export function DeleteModal(props: {
                         width: 'fit-content',
                         ...SecondaryButtonStyle
                     }}
-                    onClick={() => props.handleCancel()}
+                    onClick={() => props.hideModal()}
                 />
                 <StyledButton 
                     text='Delete'

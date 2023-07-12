@@ -30,9 +30,7 @@ export function InvoicesPage() {
                     <LeftOverlay handleClose={() => null}>
                         <EditInvoice
                             type='add'
-                            handleCancel={() => setShowNewInvoice(false)} 
-                            // todo add in save logic
-                            handleSave={() => null}
+                            hideModal={() => setShowNewInvoice(false)} 
                         />
                     </LeftOverlay>
                 )}

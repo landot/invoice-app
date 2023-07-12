@@ -14,6 +14,8 @@ import { EditStyles, EditHeaderStyles, EditScrollableStyles, EditBillStyles, Fie
 import { getUUID } from "../utils/getUUID";
 import { DarkButtonStyle } from "../data/types/DarkButtonStyles";
 import styled from "styled-components";
+import { useAppDispatch } from "../../app/hooks";
+import { addInvoice, editInvoice } from "../../features/invoice/invoiceSlice";
 
 
 export const AddActionButtonStyles = styled.div`
@@ -31,9 +33,9 @@ export const AddSaveButtonStyles = styled.div`
 export function EditInvoice(props: {
     type: 'edit' | 'add',
     prefill?: InvoiceData,
-    handleCancel: () => void,
-    handleSave: () => void
+    hideModal: () => void
 }) {
+    const dispatch = useAppDispatch();
     const emptyInvoice: InvoiceData = {
         id: getUUID(),
         createdAt: new Date().getTime(),
@@ -42,7 +44,7 @@ export function EditInvoice(props: {
         description: '',
         clientName: '',
         clientEmail: '',
-        status: Status.Draft,
+        status: Status.Pending,
         senderAddress: {
             street: '',
             city: '',
@@ -174,7 +176,7 @@ export function EditInvoice(props: {
                                 width: 'fit-content',
                                 ...SecondaryButtonStyle
                             }} 
-                            onClick={props.handleCancel}
+                            onClick={props.hideModal}
                         />
                         <StyledButton 
                             text='Save Changes' 
@@ -183,7 +185,10 @@ export function EditInvoice(props: {
                                 width: 'fit-content',
                                 ...PrimaryButtonStyle
                             }} 
-                            onClick={props.handleSave}
+                            onClick={() => {
+                                props.hideModal();
+                                dispatch(editInvoice({invoiceId: invoiceData.id, updatedInvoice: invoiceData}));
+                            }}
                         />
                     </>
                 )}
@@ -196,7 +201,7 @@ export function EditInvoice(props: {
                                 width: 'fit-content',
                                 ...SecondaryButtonStyle
                             }} 
-                            onClick={props.handleCancel}
+                            onClick={props.hideModal}
                         />
                         <AddSaveButtonStyles>
                             <StyledButton 
@@ -206,7 +211,13 @@ export function EditInvoice(props: {
                                     width: 'fit-content',
                                     ...DarkButtonStyle
                                 }} 
-                                onClick={props.handleSave}
+                                onClick={() => {
+                                    props.hideModal();
+                                    dispatch(addInvoice({
+                                        ...invoiceData,
+                                        status: Status.Draft
+                                    }));
+                            }}
                             />
                             <StyledButton 
                                 text='Save & Send' 
@@ -215,7 +226,10 @@ export function EditInvoice(props: {
                                     width: 'fit-content',
                                     ...PrimaryButtonStyle
                                 }} 
-                                onClick={props.handleSave}
+                                onClick={() => {
+                                    props.hideModal();
+                                    dispatch(addInvoice(invoiceData));
+                                }}
                             />
                         </AddSaveButtonStyles>
                     </AddActionButtonStyles>

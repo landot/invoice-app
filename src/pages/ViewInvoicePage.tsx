@@ -25,7 +25,7 @@ export function ViewInvoicePage() {
             <ViewInvoicePageStyles>
                 {showDelete && (
                     <CenterOverlay handleClose={() => setShowDelete(false)}>
-                        <DeleteModal id={invoice.id} handleDelete={() => null} handleCancel={() => setShowDelete(false)} />
+                        <DeleteModal id={invoice.id} handleDelete={() => null} hideModal={() => setShowDelete(false)} />
                     </CenterOverlay>
                 )}
                 {showEdit && (
@@ -33,8 +33,7 @@ export function ViewInvoicePage() {
                         <EditInvoice 
                             type='edit'
                             prefill={invoice} 
-                            handleSave={() => null} 
-                            handleCancel={() => setShowEdit(false)} 
+                            hideModal={() => setShowEdit(false)} 
                         />
                     </LeftOverlay>
                 )}
