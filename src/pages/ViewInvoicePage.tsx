@@ -42,7 +42,6 @@ export function ViewInvoicePage() {
                     invoice={invoice} 
                     handleEdit={() => setShowEdit(true)}
                     handleDelete={() => setShowDelete(true)} 
-                    handleMarkAsPaid={() => null} 
                     handleGoBack={() => navigate('/')} 
                 />
             </ViewInvoicePageStyles>

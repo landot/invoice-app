@@ -11,14 +11,16 @@ import { HeadingSAlt } from "../styles/header/AlternateHeadingS.styles";
 import { BodyText } from "../styles/text/Text.styles";
 import { StyledButton } from "./Button";
 import { getDateStringForTimestamp } from "../utils/getDateStringForTimestamp";
+import { markAsPaid } from "../../features/invoice/invoiceSlice";
+import { useAppDispatch } from "../../app/hooks";
 
 export function ViewInvoice(props: {
     invoice: InvoiceData,
     handleEdit: (id: string) => void,
     handleDelete: (id: string) => void,
-    handleMarkAsPaid: (id: string) => void,
     handleGoBack: () => void
 }) {
+    const dispatch = useAppDispatch();
 
     return (
         <ViewInvoiceContainerStyles>
@@ -59,7 +61,7 @@ export function ViewInvoice(props: {
                             width: 'fit-content',
                             ...PrimaryButtonStyle
                         }}
-                        onClick={() => props.handleMarkAsPaid(props.invoice.id)}
+                        onClick={() => dispatch(markAsPaid(props.invoice.id))}
                     />
                 </ViewInvoiceHeaderRightStyles>
             </ViewInvoiceHeaderStyles>
