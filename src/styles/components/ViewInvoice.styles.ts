@@ -83,11 +83,8 @@ export const InvoiceTableStyles = styled.table`
     width: 100%;
     border-radius: 8px 8px 0px 0px;
     background: ${({ theme }) => theme.colors.lightGray};
-    padding: 32px;
-
-    tr, th {
-        padding-bottom: 32px;
-    }
+    padding: 0 32px;
+    border-spacing: 0 32px;
 `
 
 export const ViewInvoiceRefIdStyles = styled.div`
