@@ -7,6 +7,7 @@ import { InvoiceRowStyles, InvoiceIdCellStyles, InvoiceDateCellStyles, InvoiceCo
 import { InvoiceData } from "../data/types/Data";
 import { getDateStringForTimestamp } from "../utils/getDateStringForTimestamp";
 import { useNavigate } from "react-router-dom";
+import { getTotalString } from "../utils/totalUtils";
 
 export function Invoice(props: {invoice: InvoiceData}) {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ export function Invoice(props: {invoice: InvoiceData}) {
             </InvoiceContactCellStyles>
             <InvoiceCostCellStyles>
                 <HeadingSAlt>
-                    {`£ ${props.invoice.total}`}
+                    {`£ ${getTotalString(props.invoice.items)}`}
                 </HeadingSAlt> 
             </InvoiceCostCellStyles>
             <InvoiceStatusCellStyles>

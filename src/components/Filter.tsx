@@ -8,10 +8,15 @@ function FilterDropdownItem(props: {
     selected: boolean,
     onClick: () => void
 }) {
+
+    function handleLabelClick(e: React.MouseEvent<HTMLLabelElement>) {
+        e.stopPropagation();
+    }
+
     return (
-        <FilterDropdownItemStyles>
-            <input id={props.name} type="checkbox" defaultChecked={props.selected} value={props.name} onChange={() => props.onClick()} />
-            <label htmlFor={props.name}>{props.name}</label>
+        <FilterDropdownItemStyles onClick={() => props.onClick()}>
+            <input id={props.name} type="checkbox" checked={props.selected} value={props.name} onClick={() => props.onClick()}/>
+            <label htmlFor={props.name} onClick={(e) => handleLabelClick(e)}>{props.name}</label>
         </FilterDropdownItemStyles>
     )
 }

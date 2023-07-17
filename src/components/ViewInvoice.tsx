@@ -13,6 +13,9 @@ import { StyledButton } from "./Button";
 import { getDateStringForTimestamp } from "../utils/getDateStringForTimestamp";
 import { markAsPaid } from "../../features/invoice/invoiceSlice";
 import { useAppDispatch } from "../../app/hooks";
+import { getTotalString } from "../utils/totalUtils";
+import { convertToCostString } from "../utils/convertToCostString";
+
 
 export function ViewInvoice(props: {
     invoice: InvoiceData,
@@ -124,15 +127,15 @@ export function ViewInvoice(props: {
                             <tr>
                                 <TableCellAlignLeft><HeadingS>{item.name}</HeadingS></TableCellAlignLeft>
                                 <TableCellAlignCenter><BodyText>{item.quantity}</BodyText></TableCellAlignCenter>
-                                <TableCellAlignRight><BodyText>{item.price}</BodyText></TableCellAlignRight>
-                                <TableCellAlignRight><HeadingS>£ {item.total}</HeadingS></TableCellAlignRight>
+                                <TableCellAlignRight><BodyText>{convertToCostString(item.price)}</BodyText></TableCellAlignRight>
+                                <TableCellAlignRight><HeadingS>£ {convertToCostString(item.quantity * item.price)}</HeadingS></TableCellAlignRight>
                             </tr>
                         ))}
                     </InvoiceTableStyles>
                     <AmountDueStyles>
                         <BodyText>Amount Due</BodyText>
                         <HeadingM>
-                            £ {props.invoice.total}
+                            £ {getTotalString(props.invoice.items)}
                         </HeadingM>
                     </AmountDueStyles>
                 </ViewInvoiceItemStyles>
