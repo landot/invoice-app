@@ -5,8 +5,8 @@ export const FilterStyles = styled.div`
     position: relative;
 `
 
-export const ArrowStyles = styled(ArrowDownIcon)<{up: boolean}>`
-    transform: ${p => p.up ? 'rotate(180deg)': ''};
+export const ArrowStyles = styled(ArrowDownIcon)<{$up: boolean}>`
+    transform: ${p => p.$up ? 'rotate(180deg)': ''};
 `
 
 export const FilterButtonStyles = styled.button``

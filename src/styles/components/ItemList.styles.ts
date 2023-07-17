@@ -10,6 +10,7 @@ export const ItemNameCellStyles = styled.td`
 
 export const ItemQuantityCellStyles = styled.td`
     width: 10%;
+    min-width: 35px;
 
     ${TextInputStyles} {
         text-align: center;
@@ -18,6 +19,7 @@ export const ItemQuantityCellStyles = styled.td`
 
 export const ItemPriceCellStyles = styled.td`
     width: 15%;
+    min-width: 50px;
 `
 
 export const ItemTotalCellStyles = styled.td`
@@ -49,7 +51,7 @@ export const ItemListStyles = styled.div`
         width: fit-content;
         color: ${({ theme }) => theme.colors.mediumGray};
         margin-bottom: 14px;
-    }
+    };
 `
 
 export const ItemTableStyles = styled.table`

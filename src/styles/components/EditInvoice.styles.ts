@@ -15,6 +15,10 @@ export const EditHeaderStyles = styled.div``
 export const EditBillStyles = styled.div`
     display: flex;
     flex-direction: column;
+    
+    ${HeadingS} {
+        color: #7C5DFA;
+    }
 `
 
 export const EditActions = styled.div`

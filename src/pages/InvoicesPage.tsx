@@ -9,8 +9,10 @@ import { EditInvoice } from "../components/EditInvoice"
 import { LeftOverlay } from "../components/LeftOverlay"
 import { useAppSelector } from '../../app/hooks';
 import { selectInvoices } from "../../features/invoice/invoiceSlice"
+import { NoInvoice } from "../components/NoInvoice"
 
 export const InvoicesPageStyles = styled.div`
+    height: 100%;
 
     ${InvoicesStyles} {
         margin-top: 60px;
@@ -40,7 +42,11 @@ export function InvoicesPage() {
                     handleFilterUpdate={(updatedFilters: Status[]) => setFilters(updatedFilters)} 
                     handleNewInvoice={() => setShowNewInvoice(true)} 
                 />
-                <Invoices invoices={filteredInvoices} />
+                {filteredInvoices.length > 0 ? (
+                    <Invoices invoices={filteredInvoices} />
+                ): (
+                    <NoInvoice />
+                )}
             </InvoicesPageStyles>
         </Page>
     )

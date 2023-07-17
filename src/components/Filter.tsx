@@ -15,7 +15,7 @@ function FilterDropdownItem(props: {
 
     return (
         <FilterDropdownItemStyles onClick={() => props.onClick()}>
-            <input id={props.name} type="checkbox" checked={props.selected} value={props.name} onClick={() => props.onClick()}/>
+            <input readOnly id={props.name} type="checkbox" checked={props.selected} value={props.name} onClick={() => props.onClick()}/>
             <label htmlFor={props.name} onClick={(e) => handleLabelClick(e)}>{props.name}</label>
         </FilterDropdownItemStyles>
     )
@@ -47,12 +47,13 @@ export function Filter(props: {
                 <FilterButtonStyles>
                     Filter by status
                 </FilterButtonStyles>
-                <ArrowStyles up={showOptions} />
+                <ArrowStyles $up={showOptions} />
             </FilterButtonContainerStyles>
             {showOptions && (
                 <FilterDropdownStyles>
                     {props.filters.map(s => (
                         <FilterDropdownItem
+                            key={s}
                             name={s} 
                             selected={props.selectedFilters.includes(s)} 
                             onClick={() => handleClick(s)} 

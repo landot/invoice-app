@@ -123,8 +123,8 @@ export function ViewInvoice(props: {
                         <TableHeaderAlignRight>
                             <BodyText>Total</BodyText>
                         </TableHeaderAlignRight>
-                        {props.invoice.items.map(item => (
-                            <tr>
+                        {props.invoice.items.map((item, index) => (
+                            <tr key={index}>
                                 <TableCellAlignLeft><HeadingS>{item.name}</HeadingS></TableCellAlignLeft>
                                 <TableCellAlignCenter><BodyText>{item.quantity}</BodyText></TableCellAlignCenter>
                                 <TableCellAlignRight><BodyText>{convertToCostString(item.price)}</BodyText></TableCellAlignRight>

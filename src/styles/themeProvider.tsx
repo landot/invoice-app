@@ -10,7 +10,7 @@ export const theme: DefaultTheme = {
         lightGrayBlue: "#DFE3FA",
         grayBlue: "#7E88C3",
         gray: "#888EB0",
-        mediumGray: "777F98",
+        mediumGray: "#777F98",
         black: "#0C0E16",
         mirageBlack: "#141625",
         red: "#EC5757",

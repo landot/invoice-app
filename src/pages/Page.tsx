@@ -15,6 +15,10 @@ export const PageContentStyles = styled.div`
     padding: 78px 20px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 800px) {
+        padding: 50px 40px;
+    }
 `
 
 
