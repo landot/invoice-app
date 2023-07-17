@@ -111,26 +111,32 @@ export function ViewInvoice(props: {
                 </ViewInvoiceBillingStyles>
                 <ViewInvoiceItemStyles>
                     <InvoiceTableStyles>
-                        <TableHeaderAlignLeft>
-                            <BodyText>Item Name</BodyText>
-                        </TableHeaderAlignLeft>
-                        <TableHeaderAlignCenter>
-                            <BodyText>QTY.</BodyText>
-                        </TableHeaderAlignCenter>
-                        <TableHeaderAlignRight>
-                            <BodyText>Price</BodyText>
-                        </TableHeaderAlignRight>
-                        <TableHeaderAlignRight>
-                            <BodyText>Total</BodyText>
-                        </TableHeaderAlignRight>
-                        {props.invoice.items.map((item, index) => (
-                            <tr key={index}>
-                                <TableCellAlignLeft><HeadingS>{item.name}</HeadingS></TableCellAlignLeft>
-                                <TableCellAlignCenter><BodyText>{item.quantity}</BodyText></TableCellAlignCenter>
-                                <TableCellAlignRight><BodyText>{convertToCostString(item.price)}</BodyText></TableCellAlignRight>
-                                <TableCellAlignRight><HeadingS>£ {convertToCostString(item.quantity * item.price)}</HeadingS></TableCellAlignRight>
+                        <thead>
+                            <tr>
+                                <TableHeaderAlignLeft>
+                                    <BodyText>Item Name</BodyText>
+                                </TableHeaderAlignLeft>
+                                <TableHeaderAlignCenter>
+                                    <BodyText>QTY.</BodyText>
+                                </TableHeaderAlignCenter>
+                                <TableHeaderAlignRight>
+                                    <BodyText>Price</BodyText>
+                                </TableHeaderAlignRight>
+                                <TableHeaderAlignRight>
+                                    <BodyText>Total</BodyText>
+                                </TableHeaderAlignRight>
                             </tr>
-                        ))}
+                        </thead>
+                        <tbody>
+                            {props.invoice.items.map((item, index) => (
+                                <tr key={index}>
+                                    <TableCellAlignLeft><HeadingS>{item.name}</HeadingS></TableCellAlignLeft>
+                                    <TableCellAlignCenter><BodyText>{item.quantity}</BodyText></TableCellAlignCenter>
+                                    <TableCellAlignRight><BodyText>{convertToCostString(item.price)}</BodyText></TableCellAlignRight>
+                                    <TableCellAlignRight><HeadingS>£ {convertToCostString(item.quantity * item.price)}</HeadingS></TableCellAlignRight>
+                                </tr>
+                            ))}
+                        </tbody>
                     </InvoiceTableStyles>
                     <AmountDueStyles>
                         <BodyText>Amount Due</BodyText>
