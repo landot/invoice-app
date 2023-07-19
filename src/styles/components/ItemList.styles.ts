@@ -44,7 +44,7 @@ export const ItemDeleteCellStyles = styled.td`
 export const ItemListStyles = styled.div`
 
     ${ButtonContainerStyles} {
-        margin-top: 10px;
+        margin-top: 18px;
     };
 
     > ${HeadingS} {
@@ -62,11 +62,24 @@ export const ItemTableStyles = styled.table`
         color: ${({ theme }) => theme.colors.grayBlue};
         text-align: left;
     }
+`
 
+export const ItemErrorStyles = styled.div`
+    ${BodyText} {
+        color: #EC5757;
+    }
 `
 
 export const ItemTableRow = styled.tr`
     ${HeadingS} {
         color: ${({ theme }) => theme.colors.gray};
+    }
+
+    svg {
+        fill: #888EB0;
+    }
+
+    svg:hover {
+        fill: #EC5757;
     }
 `

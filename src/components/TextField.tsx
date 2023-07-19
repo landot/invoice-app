@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { TextVariant } from "../styles/text/TextVariant.styles"
-import { TextFieldStyles, TextInputStyles } from "../styles/components/TextField.styles";
+import { TextFieldHeaderStyles, TextFieldStyles, TextInputStyles } from "../styles/components/TextField.styles";
 
 export function TextField(props: {
     inputType: 'text' | 'int' | 'number',
     value: string, 
+    error?: boolean,
+    errorText?: string,
+    placeholder?: string,
     title?: string, 
     handleChange?: (value: string) => void
 }) {
@@ -23,13 +26,20 @@ export function TextField(props: {
     }
 
     return (
-        <TextFieldStyles>
-            {props.title && (
-                <TextVariant>{props.title}</TextVariant>
-            )}
+        <TextFieldStyles $error={props.error}>
+            <TextFieldHeaderStyles>
+                {props.title && (
+                    <TextVariant>{props.title}</TextVariant>
+                )}
+                {props.error && props.errorText && (
+                    <TextVariant>{props.errorText}</TextVariant>
+                )}
+            </TextFieldHeaderStyles>
             {props.inputType === 'text' && (
                 <TextInputStyles 
+                    $error={props.error}
                     type='text' 
+                    placeholder={props.placeholder}
                     value={value} 
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'text')}
                     data-testid={'text-input'}
@@ -37,7 +47,9 @@ export function TextField(props: {
             )}
             {props.inputType === 'int' && (
                 <TextInputStyles 
+                    $error={props.error}
                     type='number' 
+                    placeholder={props.placeholder}
                     min='1'
                     step='1'
                     value={value} 
@@ -47,7 +59,9 @@ export function TextField(props: {
             )}
             {props.inputType === 'number' && (
                 <TextInputStyles 
+                    $error={props.error}
                     type='number' 
+                    placeholder={props.placeholder}
                     min='.01'
                     step='.01'
                     pattern="^\d*(\.\d{0,2})?$"

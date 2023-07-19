@@ -2,6 +2,9 @@ import type { Preview } from "@storybook/react";
 import React from "react";
 import Theme from "../src/styles/themeProvider";
 import GlobalStyle from "../src/styles/globalStyles"
+import { Provider } from "react-redux";
+import { store } from "../app/store"
+import { withRouter } from "storybook-addon-react-router-v6";
 
 const preview: Preview = {
   parameters: {
@@ -16,15 +19,16 @@ const preview: Preview = {
 };
 
 export const decorators = [
+  withRouter,
   (Story, context) => (
-    // <Provider store={store}>
     <Theme>
-      <GlobalStyle />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Story />
-      </div>
+      <Provider store={store}>
+        <GlobalStyle />
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Story />
+        </div>
+      </Provider>
     </Theme>
-    // </Provider>
   )
 ];
 
