@@ -9,6 +9,10 @@ export const SidebarStyles = styled.div`
     flex-direction: column;
     align-items: center;
 
+    & > svg {
+        cursor: pointer;
+    }
+
     img {
         width: 40px;
         height: 40px;

@@ -17,12 +17,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <BrowserRouter>
             <Routes>
                 <Route path='*' element={<p>Page not found</p>}/>
-                {/* layout with sidebar */}
                 <Route path="/" element={<Layout />}>
-                  {/* invoice list page */}
                   <Route index element={<InvoicesPage />} errorElement={<p>error</p>}/>
-                  {/* <Route index element={<InvoicesPage />} errorElement={<p>error</p>}/> */}
-                  {/* view invoice page */}
                   <Route path="/:id" element={<ViewInvoicePage />} errorElement={<p>error</p>}/>
                 </Route>
             </Routes>
