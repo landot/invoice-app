@@ -2,15 +2,15 @@ import styled, { createGlobalStyle } from "styled-components";
 import { TextVariant } from "../text/TextVariant.styles";
 
 export const DatePickerStyles = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-    ${TextVariant} {
-        color: ${({ theme }) => theme.colors.grayBlue};
-        margin-bottom: 9px;
-    }
-`
+  ${TextVariant} {
+    color: ${({ theme }) => theme.colors.grayBlue};
+    margin-bottom: 9px;
+  }
+`;
 
 export const DatePickerWrapperStyles = createGlobalStyle`
     .date-picker {

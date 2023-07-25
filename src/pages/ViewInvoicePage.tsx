@@ -11,42 +11,45 @@ import { useAppSelector } from "../../app/hooks";
 import { selectInvoices } from "../../features/invoice/invoiceSlice";
 
 export function ViewInvoicePage() {
-    const navigate = useNavigate();
-    const params = useParams();
-    const [invoice] = useAppSelector(selectInvoices).filter(invoice => invoice.id === params.id);
-    const [showDelete, setShowDelete] = useState(false);
-    const [showEdit, setShowEdit] = useState(false);
+  const navigate = useNavigate();
+  const params = useParams();
+  const [invoice] = useAppSelector(selectInvoices).filter(
+    (invoice) => invoice.id === params.id,
+  );
+  const [showDelete, setShowDelete] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
 
-    if(!invoice) {
-        return (
-            <Navigate to="/error" />
-        )
-    }
+  if (!invoice) {
+    return <Navigate to="/error" />;
+  }
 
-    return (
-        <Page>
-            <>
-                {showDelete && (
-                    <CenterOverlay handleClose={() => setShowDelete(false)}>
-                        <DeleteModal id={invoice.id} hideModal={() => setShowDelete(false)} />
-                    </CenterOverlay>
-                )}
-                {showEdit && (
-                    <LeftOverlay handleClose={() => null}>
-                        <EditInvoice 
-                            type='edit'
-                            prefill={invoice} 
-                            hideModal={() => setShowEdit(false)} 
-                        />
-                    </LeftOverlay>
-                )}
-                <ViewInvoice 
-                    invoice={invoice} 
-                    handleEdit={() => setShowEdit(true)}
-                    handleDelete={() => setShowDelete(true)} 
-                    handleGoBack={() => navigate('/')} 
-                />
-            </>
-        </Page>
-    )
+  return (
+    <Page>
+      <>
+        {showDelete && (
+          <CenterOverlay handleClose={() => setShowDelete(false)}>
+            <DeleteModal
+              id={invoice.id}
+              hideModal={() => setShowDelete(false)}
+            />
+          </CenterOverlay>
+        )}
+        {showEdit && (
+          <LeftOverlay handleClose={() => null}>
+            <EditInvoice
+              type="edit"
+              prefill={invoice}
+              hideModal={() => setShowEdit(false)}
+            />
+          </LeftOverlay>
+        )}
+        <ViewInvoice
+          invoice={invoice}
+          handleEdit={() => setShowEdit(true)}
+          handleDelete={() => setShowDelete(true)}
+          handleGoBack={() => navigate("/")}
+        />
+      </>
+    </Page>
+  );
 }

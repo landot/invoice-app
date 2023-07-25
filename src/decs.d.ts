@@ -1,1 +1,1 @@
-declare module '@uidotdev/usehooks'
+declare module "@uidotdev/usehooks";

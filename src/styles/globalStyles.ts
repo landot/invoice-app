@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
- 
+import { createGlobalStyle } from "styled-components";
+
 const GlobalStyle = createGlobalStyle`
     html {
         height: 100%;
@@ -38,5 +38,5 @@ const GlobalStyle = createGlobalStyle`
         -webkit-user-select: none;
     }
 `;
- 
+
 export default GlobalStyle;

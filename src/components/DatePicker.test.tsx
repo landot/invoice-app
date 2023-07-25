@@ -1,23 +1,25 @@
-import { render } from '@testing-library/react';
-import { vi } from 'vitest';
-import Theme from '../styles/themeProvider';
-import { StyledDatePicker } from './DatePicker';
+import { render } from "@testing-library/react";
+import { vi } from "vitest";
+import Theme from "../styles/themeProvider";
+import { StyledDatePicker } from "./DatePicker";
 
-describe('DatePicker', () => {
-  it('renders with selected value and title', () => {
+describe("DatePicker", () => {
+  it("renders with selected value and title", () => {
     const mockChange = vi.fn();
     const { container, getByText } = render(
       <Theme>
-        <StyledDatePicker 
-            title={'date picker title'}
-            selectedDate={new Date('Jun 30 2023').getTime()} 
-            handleChange={mockChange}
+        <StyledDatePicker
+          title={"date picker title"}
+          selectedDate={new Date("Jun 30 2023").getTime()}
+          handleChange={mockChange}
         />
-      </Theme>
+      </Theme>,
     );
-    const title = getByText('date picker title');
+    const title = getByText("date picker title");
     expect(title).toBeInTheDocument();
-    expect(container.querySelector('input')?.getAttribute('value')).toEqual('06/30/2023');
+    expect(container.querySelector("input")?.getAttribute("value")).toEqual(
+      "06/30/2023",
+    );
   });
 
   // todo fix later. test isn't working
@@ -25,9 +27,9 @@ describe('DatePicker', () => {
   //   const mockChange = vi.fn();
   //   const { container, getByText } = render(
   //     <Theme>
-  //       <StyledDatePicker 
+  //       <StyledDatePicker
   //           title={'date picker title'}
-  //           selectedDate={new Date('Jun 30 2023')} 
+  //           selectedDate={new Date('Jun 30 2023')}
   //           handleChange={mockChange}
   //       />
   //     </Theme>
