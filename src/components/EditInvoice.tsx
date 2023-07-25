@@ -11,15 +11,16 @@ import { HeadingS } from "../styles/header/HeadingS.styles";
 import update from 'immutability-helper';
 import { ItemList } from "./ItemList";
 import { EditStyles, EditHeaderStyles, EditScrollableStyles, EditBillStyles, FieldStyles, EditActions, AddActionButtonStyles, AddSaveButtonStyles, EditContainerStyles } from "../styles/components/EditInvoice.styles";
-import { getUUID } from "../utils/getUUID";
+import { getNewIdWithoutDuplicates } from "../utils/getNewIdWithoutDuplicates";
 import { DarkButtonStyle } from "../data/types/DarkButtonStyles";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { addInvoice, editInvoice } from "../../features/invoice/invoiceSlice";
 import useWindowSize from "../utils/useWindowSize";
 import { Sidebar } from "./Sidebar";
 import { ReactComponent as BackIcon } from '../assets/icon-arrow-left.svg';
 import { GoBackStyles } from "../styles/components/ViewInvoice.styles";
 import { useNavigate } from "react-router-dom";
+import { selectInvoices } from "../../features/invoice/invoiceSlice"
 
 export interface InputError {
     field: string;
@@ -33,8 +34,9 @@ export function EditInvoice(props: {
 }) {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const invoices = useAppSelector(selectInvoices);
     const emptyInvoice: InvoiceData = {
-        id: getUUID(),
+        id: getNewIdWithoutDuplicates(invoices.map(invoice => invoice.id)),
         createdAt: new Date().getTime(),
         paymentTerms: 1,
         paymentDue: new Date().getTime() + 86400000,
@@ -103,15 +105,12 @@ export function EditInvoice(props: {
         if(invoiceData.description === '') {
             newErrors.push({field: 'description', description: "can't be empty"})
         }
-        console.log(invoiceData.items)
         const itemErrors = invoiceData.items.map(item => {
             return (item.name === '' || item.price <= 0 || isNaN(item.price) || item.quantity <= 0 || isNaN(item.quantity));
         })
-        console.log(itemErrors)
         if(itemErrors.find(e => e === true) || invoiceData.items.length === 0) {
             newErrors.push({field: 'items', description: "An item must be added and total must be greater than 0"});
         }
-        console.log(newErrors)
         setErrors(newErrors);
 
         return newErrors.length > 0;
@@ -122,7 +121,6 @@ export function EditInvoice(props: {
         if(hasErrors) {
             console.log('there are errors')
         } else {
-            console.log('looks good')
             props.hideModal();
             dispatch(addInvoice(invoiceData));
         }
@@ -133,7 +131,6 @@ export function EditInvoice(props: {
         if(hasErrors) {
             console.log('there are errors')
         } else {
-            console.log('looks good')
             props.hideModal();
             dispatch(editInvoice({invoiceId: invoiceData.id, updatedInvoice: invoiceData}));
         }
@@ -144,7 +141,6 @@ export function EditInvoice(props: {
         if(hasErrors) {
             console.log('there are errors')
         } else {
-            console.log('looks good')
             props.hideModal();
             dispatch(addInvoice({
                 ...invoiceData,
