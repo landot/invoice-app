@@ -4,6 +4,7 @@ import { HeadingS } from "../header/HeadingS.styles"
 import { ItemListStyles } from "./ItemList.styles"
 import { DatePickerStyles } from "./DatePickerWrapper.styles"
 import { DropdownStyles } from "./Dropdown.styles"
+import { HeadingM } from "../header/HeadingM.styles"
 
 export const FieldStyles = styled.div`
     display: flex;
@@ -29,9 +30,25 @@ export const EditActions = styled.div`
 `
 
 export const EditScrollableStyles = styled.div`
-    height: 70dvh;
+    height: 80dvh;
     overflow-y: auto;
     padding-right: 15px;
+`
+
+export const AddActionButtonStyles = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+`
+
+export const AddSaveButtonStyles = styled.div`
+    display: flex;
+    gap: 8px;
+`
+
+export const EditContainerStyles = styled.div`
+    height: 100%;
+    width: 100%;
 `
 
 export const EditStyles = styled.div`
@@ -42,7 +59,6 @@ export const EditStyles = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     ${TextFieldStyles}, ${DropdownStyles}, ${DatePickerStyles} {
         margin-top: 24px;
@@ -55,5 +71,15 @@ export const EditStyles = styled.div`
 
     ${EditBillStyles}, ${ItemListStyles} {
         margin-top: 46px;
+    }
+
+    @media (max-width: 500px) {
+        padding: 24px 8px 24px 24px;
+        border-radius: 0;
+        height: calc(100% - 80px);
+
+        ${HeadingM} {
+            margin-top: 26px;
+        }
     }
 `

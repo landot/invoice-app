@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useClickAway } from "@uidotdev/usehooks";
 import { Status } from "../data/types/Data";
 import { FilterDropdownItemStyles, FilterStyles, FilterButtonContainerStyles, FilterButtonStyles, ArrowStyles, FilterDropdownStyles } from "../styles/components/Filter.styles";
+import useWindowSize from "../utils/useWindowSize";
 
 function FilterDropdownItem(props: {
     name: Status,
@@ -27,6 +28,7 @@ export function Filter(props: {
     handleUpdate: (updatedFilters: Status[]) => void
 }) {
     const [showOptions, setShowOptions] = useState(false);
+    const size = useWindowSize();
     const ref = useClickAway(() => {
         setShowOptions(false);
     });
@@ -45,7 +47,7 @@ export function Filter(props: {
         <FilterStyles ref={ref}>
             <FilterButtonContainerStyles onClick={() => setShowOptions(prev => !prev)}>
                 <FilterButtonStyles>
-                    Filter by status
+                    {size.width && size.width <= 500 ? "Filter": "Filter by status"}
                 </FilterButtonStyles>
                 <ArrowStyles $up={showOptions} />
             </FilterButtonContainerStyles>

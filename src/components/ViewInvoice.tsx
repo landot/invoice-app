@@ -15,6 +15,7 @@ import { markAsPaid } from "../../features/invoice/invoiceSlice";
 import { useAppDispatch } from "../../app/hooks";
 import { getTotalString } from "../utils/totalUtils";
 import { convertToCostString } from "../utils/convertToCostString";
+import useWindowSize from "../utils/useWindowSize";
 
 
 export function ViewInvoice(props: {
@@ -24,6 +25,7 @@ export function ViewInvoice(props: {
     handleGoBack: () => void
 }) {
     const dispatch = useAppDispatch();
+    const size = useWindowSize();
 
     return (
         <ViewInvoiceContainerStyles>
@@ -38,35 +40,37 @@ export function ViewInvoice(props: {
                     <BodyText>Status</BodyText>
                     <InvoiceStatus type={props.invoice.status}/>
                 </ViewInvoiceHeaderLeftStyles>
-                <ViewInvoiceHeaderRightStyles>
-                    <StyledButton 
-                        text='Edit'
-                        type={{
-                            includeAddIcon: false,
-                            width: 'fit-content',
-                            ...SecondaryButtonStyle
-                        }}
-                        onClick={() => props.handleEdit(props.invoice.id)}
-                    />
-                    <StyledButton 
-                        text='Delete'
-                        type={{
-                            includeAddIcon: false,
-                            width: 'fit-content',
-                            ...DestructiveButtonStyle
-                        }}
-                        onClick={() => props.handleDelete(props.invoice.id)}
-                    />
-                    <StyledButton 
-                        text='Mark as Paid'
-                        type={{
-                            includeAddIcon: false,
-                            width: 'fit-content',
-                            ...PrimaryButtonStyle
-                        }}
-                        onClick={() => dispatch(markAsPaid(props.invoice.id))}
-                    />
-                </ViewInvoiceHeaderRightStyles>
+                {size.width && size.width > 600 && (
+                    <ViewInvoiceHeaderRightStyles>
+                        <StyledButton 
+                            text='Edit'
+                            type={{
+                                includeAddIcon: false,
+                                width: 'fit-content',
+                                ...SecondaryButtonStyle
+                            }}
+                            onClick={() => props.handleEdit(props.invoice.id)}
+                        />
+                        <StyledButton 
+                            text='Delete'
+                            type={{
+                                includeAddIcon: false,
+                                width: 'fit-content',
+                                ...DestructiveButtonStyle
+                            }}
+                            onClick={() => props.handleDelete(props.invoice.id)}
+                        />
+                        <StyledButton 
+                            text='Mark as Paid'
+                            type={{
+                                includeAddIcon: false,
+                                width: 'fit-content',
+                                ...PrimaryButtonStyle
+                            }}
+                            onClick={() => dispatch(markAsPaid(props.invoice.id))}
+                        />
+                    </ViewInvoiceHeaderRightStyles>
+                )}
             </ViewInvoiceHeaderStyles>
             <ViewInvoiceBodyStyles>
                 <ViewInvoiceRefStyles>
@@ -146,6 +150,37 @@ export function ViewInvoice(props: {
                     </AmountDueStyles>
                 </ViewInvoiceItemStyles>
             </ViewInvoiceBodyStyles>
+            {size.width && size.width <= 600 && (
+                    <ViewInvoiceHeaderRightStyles>
+                        <StyledButton 
+                            text='Edit'
+                            type={{
+                                includeAddIcon: false,
+                                width: 'fit-content',
+                                ...SecondaryButtonStyle
+                            }}
+                            onClick={() => props.handleEdit(props.invoice.id)}
+                        />
+                        <StyledButton 
+                            text='Delete'
+                            type={{
+                                includeAddIcon: false,
+                                width: 'fit-content',
+                                ...DestructiveButtonStyle
+                            }}
+                            onClick={() => props.handleDelete(props.invoice.id)}
+                        />
+                        <StyledButton 
+                            text='Mark as Paid'
+                            type={{
+                                includeAddIcon: false,
+                                width: 'fit-content',
+                                ...PrimaryButtonStyle
+                            }}
+                            onClick={() => dispatch(markAsPaid(props.invoice.id))}
+                        />
+                    </ViewInvoiceHeaderRightStyles>
+                )}
         </ViewInvoiceContainerStyles>
     )
 }

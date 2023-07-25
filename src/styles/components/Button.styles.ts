@@ -42,4 +42,10 @@ export const ButtonContainerStyles = styled.div<{$styles: ButtonType}>`
             color: ${p => p.$styles.hoverTextColor};  
         }
     }
+
+    @media (max-width: 500px) {
+        ${AddIconStyles} {
+            margin-right: 8px;
+        }
+    }
 `

@@ -10,24 +10,16 @@ import { SecondaryButtonStyle } from "../data/types/SecondaryButtonStyle";
 import { HeadingS } from "../styles/header/HeadingS.styles";
 import update from 'immutability-helper';
 import { ItemList } from "./ItemList";
-import { EditStyles, EditHeaderStyles, EditScrollableStyles, EditBillStyles, FieldStyles, EditActions } from "../styles/components/EditInvoice.styles";
+import { EditStyles, EditHeaderStyles, EditScrollableStyles, EditBillStyles, FieldStyles, EditActions, AddActionButtonStyles, AddSaveButtonStyles, EditContainerStyles } from "../styles/components/EditInvoice.styles";
 import { getUUID } from "../utils/getUUID";
 import { DarkButtonStyle } from "../data/types/DarkButtonStyles";
-import styled from "styled-components";
 import { useAppDispatch } from "../../app/hooks";
 import { addInvoice, editInvoice } from "../../features/invoice/invoiceSlice";
-
-
-export const AddActionButtonStyles = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-`
-
-export const AddSaveButtonStyles = styled.div`
-    display: flex;
-    gap: 8px;
-`
+import useWindowSize from "../utils/useWindowSize";
+import { Sidebar } from "./Sidebar";
+import { ReactComponent as BackIcon } from '../assets/icon-arrow-left.svg';
+import { GoBackStyles } from "../styles/components/ViewInvoice.styles";
+import { useNavigate } from "react-router-dom";
 
 export interface InputError {
     field: string;
@@ -40,6 +32,7 @@ export function EditInvoice(props: {
     hideModal: () => void
 }) {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const emptyInvoice: InvoiceData = {
         id: getUUID(),
         createdAt: new Date().getTime(),
@@ -73,6 +66,7 @@ export function EditInvoice(props: {
     }
     const [invoiceData, setInvoiceData] = useState<InvoiceData>(props.prefill || emptyInvoice);
     const [errors, setErrors] = useState<InputError[]>([]);
+    const size = useWindowSize();
 
     function validate(): boolean {
         const newErrors: InputError[] = [];
@@ -197,209 +191,225 @@ export function EditInvoice(props: {
     }
     
     return (
-        <EditStyles>
-            <EditHeaderStyles>
-                <HeadingM>{props.type === 'add' ? 'New Invoice': `Edit #${invoiceData.id}`}</HeadingM>
-            </EditHeaderStyles>
-            <EditScrollableStyles>
-                <EditBillStyles>
-                    <HeadingS>Bill From</HeadingS>
-                    <TextField 
-                        error={inputHasError('senderAddress.street')} 
-                        errorText={getErrorText('senderAddress.street')} 
-                        inputType='text' 
-                        title={'Street Address'} 
-                        value={invoiceData.senderAddress.street} 
-                        handleChange={(value: string) => {
-                            setInvoiceData(prev => update(prev, {senderAddress: {street: {$set: value}}}))
-                        }}
-                    />
-                    <FieldStyles>
-                        <TextField 
-                            error={inputHasError('senderAddress.city')} 
-                            errorText={getErrorText('senderAddress.city')} 
-                            inputType='text' 
-                            title={'City'} 
-                            value={invoiceData.senderAddress.city}  
-                            handleChange={(value: string) => {
-                                setInvoiceData(prev => update(prev, {senderAddress: {city: {$set: value}}}))
-                            }}
-                        />
-                        <TextField 
-                            error={inputHasError('senderAddress.postCode')} 
-                            errorText={getErrorText('senderAddress.postCode')}
-                            inputType='text' 
-                            title={'Post Code'} 
-                            value={invoiceData.senderAddress.postCode}  
-                            handleChange={(value: string) => {
-                                setInvoiceData(prev => update(prev, {senderAddress: {postCode: {$set: value}}}))
-                            }}
-                        />
-                        <TextField 
-                            error={inputHasError('senderAddress.country')} 
-                            errorText={getErrorText('senderAddress.country')}
-                            inputType='text' 
-                            title={'Country'} 
-                            value={invoiceData.senderAddress.country}  
-                            handleChange={(value: string) => {
-                                setInvoiceData(prev => update(prev, {senderAddress: {country: {$set: value}}}))
-                            }}
-                        />
-                    </FieldStyles>
-                </EditBillStyles>
-                <EditBillStyles>
-                    <HeadingS>Bill To</HeadingS>
-                    <TextField 
-                        error={inputHasError('clientName')} 
-                        errorText={getErrorText('clientName')}
-                        inputType='text' 
-                        title={"Client's Name"} 
-                        value={invoiceData.clientName} 
-                        handleChange={(value: string) => {
-                            setInvoiceData(prev => update(prev, {clientName: {$set: value}}))
-                        }}
-                    />
-                    <TextField 
-                        error={inputHasError('clientEmail')} 
-                        errorText={getErrorText('clientEmail')}
-                        placeholder="e.g. email@example.com"
-                        inputType='text' 
-                        title={"Client's Email"} 
-                        value={invoiceData.clientEmail} 
-                        handleChange={(value: string) => {
-                            setInvoiceData(prev => update(prev, {clientEmail: {$set: value}}))
-                        }}
-                    />
-                    <TextField 
-                        error={inputHasError('clientAddress.street')} 
-                        errorText={getErrorText('clientAddress.street')}
-                        inputType='text' 
-                        title={'Street Address'} 
-                        value={invoiceData.clientAddress.street} 
-                        handleChange={(value: string) => {
-                            setInvoiceData(prev => update(prev, {clientAddress: {street: {$set: value}}}))
-                        }}
-                    />
-                    <FieldStyles>
-                        <TextField 
-                            error={inputHasError('clientAddress.city')} 
-                            errorText={getErrorText('clientAddress.city')}
-                            inputType='text' 
-                            title={'City'} 
-                            value={invoiceData.clientAddress.city}  
-                            handleChange={(value: string) => {
-                                setInvoiceData(prev => update(prev, {clientAddress: {city: {$set: value}}}))
-                            }}
-                        />
-                        <TextField 
-                            error={inputHasError('clientAddress.postCode')} 
-                            errorText={getErrorText('clientAddress.postCode')}
-                            inputType='text' 
-                            title={'Post Code'} 
-                            value={invoiceData.clientAddress.postCode}  
-                            handleChange={(value: string) => {
-                                setInvoiceData(prev => update(prev, {clientAddress: {postCode: {$set: value}}}))
-                            }}
-                        />
-                        <TextField 
-                            error={inputHasError('clientAddress.country')} 
-                            errorText={getErrorText('clientAddress.country')}
-                            inputType='text' 
-                            title={'Country'} 
-                            value={invoiceData.clientAddress.country}  
-                            handleChange={(value: string) => {
-                                setInvoiceData(prev => update(prev, {clientAddress: {country: {$set: value}}}))
-                            }}
-                        />
-                    </FieldStyles>
-                    <FieldStyles>
-                        <StyledDatePicker title={"Invoice Date"} selectedDate={invoiceData.createdAt} handleChange={handleInvoiceDateChange}/>
-                        <Dropdown 
-                            title={"Payment Terms"} 
-                            data={[
-                                {name: 'Net 1 Day', value: 1},
-                                {name: 'Net 7 Day', value: 7},
-                                {name: 'Net 14 Day', value: 14},
-                                {name: 'Net 30 Day', value: 30},
-                            ]} 
-                            selectedValue={invoiceData.paymentTerms} 
-                            handleChange={handlePaymentTermsChange} />
-                    </FieldStyles>
-                    <TextField 
-                        error={inputHasError('description')} 
-                        errorText={getErrorText('description')}
-                        placeholder="e.g. Graphic Design Service" 
-                        inputType='text' 
-                        title={'Project Description'} 
-                        value={invoiceData.description}  
-                        handleChange={(value: string) => {
-                            setInvoiceData(prev => update(prev, {description: {$set: value}}))
-                        }}
-                    />
-                </EditBillStyles>
-                <ItemList 
-                    items={invoiceData.items} 
-                    handleItemUpdate={handleItemChange} 
-                    showErrors={errors.length > 0} 
-                />
-            </EditScrollableStyles>
-            <EditActions>
-                {props.type === 'edit' && (
-                    <>
-                        <StyledButton 
-                            text='Cancel' 
-                            type={{
-                                includeAddIcon: false,
-                                width: 'fit-content',
-                                ...SecondaryButtonStyle
-                            }} 
-                            onClick={props.hideModal}
-                        />
-                        <StyledButton 
-                            text='Save Changes' 
-                            type={{
-                                includeAddIcon: false,
-                                width: 'fit-content',
-                                ...PrimaryButtonStyle
-                            }} 
-                            onClick={handleEdit}
-                        />
-                    </>
+        <EditContainerStyles>
+            {size.width && size.width <= 500 && (
+                <Sidebar />
+            )}
+            <EditStyles>
+                {size.width && size.width <= 500 && (
+                    <GoBackStyles>
+                        <BackIcon />
+                        <a onClick={() => {
+                            navigate('/');
+                            props.hideModal();
+                        }}>
+                            <HeadingS>Go back</HeadingS>
+                        </a>
+                    </GoBackStyles>
                 )}
-                {props.type === 'add' && (
-                    <AddActionButtonStyles>
-                        <StyledButton 
-                            text='Discard' 
-                            type={{
-                                includeAddIcon: false,
-                                width: 'fit-content',
-                                ...SecondaryButtonStyle
-                            }} 
-                            onClick={props.hideModal}
+                <EditHeaderStyles>
+                    <HeadingM>{props.type === 'add' ? 'New Invoice': `Edit #${invoiceData.id}`}</HeadingM>
+                </EditHeaderStyles>
+                <EditScrollableStyles>
+                    <EditBillStyles>
+                        <HeadingS>Bill From</HeadingS>
+                        <TextField 
+                            error={inputHasError('senderAddress.street')} 
+                            errorText={getErrorText('senderAddress.street')} 
+                            inputType='text' 
+                            title={'Street Address'} 
+                            value={invoiceData.senderAddress.street} 
+                            handleChange={(value: string) => {
+                                setInvoiceData(prev => update(prev, {senderAddress: {street: {$set: value}}}))
+                            }}
                         />
-                        <AddSaveButtonStyles>
+                        <FieldStyles>
+                            <TextField 
+                                error={inputHasError('senderAddress.city')} 
+                                errorText={getErrorText('senderAddress.city')} 
+                                inputType='text' 
+                                title={'City'} 
+                                value={invoiceData.senderAddress.city}  
+                                handleChange={(value: string) => {
+                                    setInvoiceData(prev => update(prev, {senderAddress: {city: {$set: value}}}))
+                                }}
+                            />
+                            <TextField 
+                                error={inputHasError('senderAddress.postCode')} 
+                                errorText={getErrorText('senderAddress.postCode')}
+                                inputType='text' 
+                                title={'Post Code'} 
+                                value={invoiceData.senderAddress.postCode}  
+                                handleChange={(value: string) => {
+                                    setInvoiceData(prev => update(prev, {senderAddress: {postCode: {$set: value}}}))
+                                }}
+                            />
+                            <TextField 
+                                error={inputHasError('senderAddress.country')} 
+                                errorText={getErrorText('senderAddress.country')}
+                                inputType='text' 
+                                title={'Country'} 
+                                value={invoiceData.senderAddress.country}  
+                                handleChange={(value: string) => {
+                                    setInvoiceData(prev => update(prev, {senderAddress: {country: {$set: value}}}))
+                                }}
+                            />
+                        </FieldStyles>
+                    </EditBillStyles>
+                    <EditBillStyles>
+                        <HeadingS>Bill To</HeadingS>
+                        <TextField 
+                            error={inputHasError('clientName')} 
+                            errorText={getErrorText('clientName')}
+                            inputType='text' 
+                            title={"Client's Name"} 
+                            value={invoiceData.clientName} 
+                            handleChange={(value: string) => {
+                                setInvoiceData(prev => update(prev, {clientName: {$set: value}}))
+                            }}
+                        />
+                        <TextField 
+                            error={inputHasError('clientEmail')} 
+                            errorText={getErrorText('clientEmail')}
+                            placeholder="e.g. email@example.com"
+                            inputType='text' 
+                            title={"Client's Email"} 
+                            value={invoiceData.clientEmail} 
+                            handleChange={(value: string) => {
+                                setInvoiceData(prev => update(prev, {clientEmail: {$set: value}}))
+                            }}
+                        />
+                        <TextField 
+                            error={inputHasError('clientAddress.street')} 
+                            errorText={getErrorText('clientAddress.street')}
+                            inputType='text' 
+                            title={'Street Address'} 
+                            value={invoiceData.clientAddress.street} 
+                            handleChange={(value: string) => {
+                                setInvoiceData(prev => update(prev, {clientAddress: {street: {$set: value}}}))
+                            }}
+                        />
+                        <FieldStyles>
+                            <TextField 
+                                error={inputHasError('clientAddress.city')} 
+                                errorText={getErrorText('clientAddress.city')}
+                                inputType='text' 
+                                title={'City'} 
+                                value={invoiceData.clientAddress.city}  
+                                handleChange={(value: string) => {
+                                    setInvoiceData(prev => update(prev, {clientAddress: {city: {$set: value}}}))
+                                }}
+                            />
+                            <TextField 
+                                error={inputHasError('clientAddress.postCode')} 
+                                errorText={getErrorText('clientAddress.postCode')}
+                                inputType='text' 
+                                title={'Post Code'} 
+                                value={invoiceData.clientAddress.postCode}  
+                                handleChange={(value: string) => {
+                                    setInvoiceData(prev => update(prev, {clientAddress: {postCode: {$set: value}}}))
+                                }}
+                            />
+                            <TextField 
+                                error={inputHasError('clientAddress.country')} 
+                                errorText={getErrorText('clientAddress.country')}
+                                inputType='text' 
+                                title={'Country'} 
+                                value={invoiceData.clientAddress.country}  
+                                handleChange={(value: string) => {
+                                    setInvoiceData(prev => update(prev, {clientAddress: {country: {$set: value}}}))
+                                }}
+                            />
+                        </FieldStyles>
+                        <FieldStyles>
+                            <StyledDatePicker title={"Invoice Date"} selectedDate={invoiceData.createdAt} handleChange={handleInvoiceDateChange}/>
+                            <Dropdown 
+                                title={"Payment Terms"} 
+                                data={[
+                                    {name: 'Net 1 Day', value: 1},
+                                    {name: 'Net 7 Day', value: 7},
+                                    {name: 'Net 14 Day', value: 14},
+                                    {name: 'Net 30 Day', value: 30},
+                                ]} 
+                                selectedValue={invoiceData.paymentTerms} 
+                                handleChange={handlePaymentTermsChange} />
+                        </FieldStyles>
+                        <TextField 
+                            error={inputHasError('description')} 
+                            errorText={getErrorText('description')}
+                            placeholder="e.g. Graphic Design Service" 
+                            inputType='text' 
+                            title={'Project Description'} 
+                            value={invoiceData.description}  
+                            handleChange={(value: string) => {
+                                setInvoiceData(prev => update(prev, {description: {$set: value}}))
+                            }}
+                        />
+                    </EditBillStyles>
+                    <ItemList 
+                        items={invoiceData.items} 
+                        handleItemUpdate={handleItemChange} 
+                        showErrors={errors.length > 0} 
+                    />
+                </EditScrollableStyles>
+                <EditActions>
+                    {props.type === 'edit' && (
+                        <>
                             <StyledButton 
-                                text='Save as Draft' 
+                                text='Cancel' 
                                 type={{
                                     includeAddIcon: false,
                                     width: 'fit-content',
-                                    ...DarkButtonStyle
+                                    ...SecondaryButtonStyle
                                 }} 
-                                onClick={handleDraft}
+                                onClick={props.hideModal}
                             />
                             <StyledButton 
-                                text='Save & Send' 
+                                text='Save Changes' 
                                 type={{
                                     includeAddIcon: false,
                                     width: 'fit-content',
                                     ...PrimaryButtonStyle
                                 }} 
-                                onClick={handleSave}
+                                onClick={handleEdit}
                             />
-                        </AddSaveButtonStyles>
-                    </AddActionButtonStyles>
-                )}
-            </EditActions>
-        </EditStyles>
+                        </>
+                    )}
+                    {props.type === 'add' && (
+                        <AddActionButtonStyles>
+                            <StyledButton 
+                                text='Discard' 
+                                type={{
+                                    includeAddIcon: false,
+                                    width: 'fit-content',
+                                    ...SecondaryButtonStyle
+                                }} 
+                                onClick={props.hideModal}
+                            />
+                            <AddSaveButtonStyles>
+                                <StyledButton 
+                                    text='Save as Draft' 
+                                    type={{
+                                        includeAddIcon: false,
+                                        width: 'fit-content',
+                                        ...DarkButtonStyle
+                                    }} 
+                                    onClick={handleDraft}
+                                />
+                                <StyledButton 
+                                    text='Save & Send' 
+                                    type={{
+                                        includeAddIcon: false,
+                                        width: 'fit-content',
+                                        ...PrimaryButtonStyle
+                                    }} 
+                                    onClick={handleSave}
+                                />
+                            </AddSaveButtonStyles>
+                        </AddActionButtonStyles>
+                    )}
+                </EditActions>
+            </EditStyles>
+        </EditContainerStyles>
     )
 }

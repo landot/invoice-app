@@ -9,7 +9,8 @@ export const DeleteModalActionsStyles = styled.div`
 `
 
 export const DeleteModalStyles = styled(Box)`
-    width: 480px;
+    width: 100%;
+    max-width: 480px;
     padding: 48px;
 
     ${TextVariant} {

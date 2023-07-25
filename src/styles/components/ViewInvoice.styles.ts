@@ -9,12 +9,25 @@ export const ViewInvoiceHeaderLeftStyles = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @media (max-width: 600px) {
+        width: 100%;
+        justify-content: space-between;
+    }
 `
 
 export const ViewInvoiceHeaderRightStyles = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
+
+    @media (max-width: 600px) {
+        width: 100%;
+        justify-content: center;
+        background: #FFFFFF;
+        padding: 20px;
+        margin-top: 40px;
+    }
 `
 
 export const ViewInvoiceHeaderStyles = styled(Box)`
@@ -22,15 +35,39 @@ export const ViewInvoiceHeaderStyles = styled(Box)`
     justify-content: space-between;
     align-items: center;
     padding: 20px 32px;
+
+    @media (max-width: 600px) {
+        padding: 27px 24px;
+    }
 `
 
 export const ViewInvoiceRefStyles = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 30px;
+    }
 `
 
 export const ViewInvoiceBodyStyles = styled(Box)`
     padding: 48px;
+
+    @media (max-width: 600px) {
+        padding: 24px;
+    }
+`
+export const ViewInvoiceItemStyles = styled.div``
+export const ViewInvoiceBillingInfoStyles = styled.div``
+export const ViewInvoiceDateStyles = styled.div`
+    @media (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
 `
 
 export const ViewInvoiceBillingStyles = styled.div`
@@ -38,9 +75,21 @@ export const ViewInvoiceBillingStyles = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin-right: 100px;
+
+    @media (max-width: 700px) {
+        margin-right: 0;
+    }
+
+    @media (max-width: 600px) {
+        flex-wrap: wrap;
+
+        ${ViewInvoiceDateStyles}, ${ViewInvoiceBillingInfoStyles} {
+            flex-basis: 50%;
+            margin-bottom: 32px;
+        }
+    }
 `
 
-export const ViewInvoiceItemStyles = styled.div``
 
 export const AmountDueStyles = styled.div`
     display: flex;
@@ -97,15 +146,14 @@ export const ViewInvoiceRefSenderStyles = styled.div`
     text-align: right;
 `
 
-export const ViewInvoiceDateStyles = styled.div``
 
 export const InvoiceSectionStyles = styled.div`
     ${HeadingSAlt} {
         margin-top: 13px;
+        margin-bottom: 7px;
     }
 `
 
-export const ViewInvoiceBillingInfoStyles = styled.div``
 
 export const GoBackStyles = styled.div`
     display: flex;

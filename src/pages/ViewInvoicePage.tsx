@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { Page } from "./Page";
 import { ViewInvoice } from "../components/ViewInvoice";
 import { useNavigate } from "react-router-dom";
@@ -10,13 +9,6 @@ import { EditInvoice } from "../components/EditInvoice";
 import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
 import { selectInvoices } from "../../features/invoice/invoiceSlice";
-import { ViewInvoiceContainerStyles } from "../styles/components/ViewInvoice.styles";
-
-export const ViewInvoicePageStyles = styled.div`
-    ${ViewInvoiceContainerStyles} {
-        margin-bottom: 40px;
-    }
-`
 
 export function ViewInvoicePage() {
     const navigate = useNavigate();
@@ -27,7 +19,7 @@ export function ViewInvoicePage() {
 
     return (
         <Page>
-            <ViewInvoicePageStyles>
+            <>
                 {showDelete && (
                     <CenterOverlay handleClose={() => setShowDelete(false)}>
                         <DeleteModal id={invoice.id} hideModal={() => setShowDelete(false)} />
@@ -48,7 +40,7 @@ export function ViewInvoicePage() {
                     handleDelete={() => setShowDelete(true)} 
                     handleGoBack={() => navigate('/')} 
                 />
-            </ViewInvoicePageStyles>
+            </>
         </Page>
     )
 }

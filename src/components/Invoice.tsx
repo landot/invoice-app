@@ -11,6 +11,7 @@ import { getTotalString } from "../utils/totalUtils";
 
 export function Invoice(props: {invoice: InvoiceData}) {
     const navigate = useNavigate();
+
     return (
         <InvoiceRowStyles onClick={() => navigate(`/${props.invoice.id}`)}>
             <InvoiceIdCellStyles>

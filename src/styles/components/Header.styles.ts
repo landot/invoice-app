@@ -24,6 +24,12 @@ export const ActionStyles = styled.div`
     ${ButtonContainerStyles} {
         margin-left: 40px;
     };
+
+    @media (max-width: 500px) {
+        ${ButtonContainerStyles} {
+            margin-left: 20px;
+        }
+    }
 `
 
 export const HeaderStyles = styled.div`

@@ -15,6 +15,10 @@ export const TextFieldStyles = styled.div<{$error?: boolean}>`
 export const TextFieldHeaderStyles = styled.div`
     display: flex;
     justify-content: space-between;
+
+    ${TextVariant}:nth-child(2) {
+        text-align: right;
+    }
 `
 
 export const TextInputStyles = styled.input<{$error?: boolean}>`

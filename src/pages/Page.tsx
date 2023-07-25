@@ -19,6 +19,11 @@ export const PageContentStyles = styled.div`
     @media (max-width: 800px) {
         padding: 50px 40px;
     }
+
+
+    @media (max-width: 500px) {
+        padding: 40px 24px;
+    }
 `
 
 

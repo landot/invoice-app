@@ -5,6 +5,7 @@ import { Filter } from "./Filter";
 import { BodyText } from "../styles/text/Text.styles"
 import { InvoiceData, Status } from "../data/types/Data";
 import { PrimaryButtonStyle } from "../data/types/PrimaryButtonStyle";
+import useWindowSize from "../utils/useWindowSize";
 
 const buttonType: ButtonType = {
     includeAddIcon: true,
@@ -13,6 +14,8 @@ const buttonType: ButtonType = {
 }
 
 export function Header(props: {invoices: InvoiceData[], activeFilters: Status[], handleFilterUpdate: (updatedFilters: Status[]) => void, handleNewInvoice: () => void}) {
+    const size = useWindowSize();
+
     return (
         <HeaderStyles>
             <TitleStyles>
@@ -26,7 +29,7 @@ export function Header(props: {invoices: InvoiceData[], activeFilters: Status[],
             <ActionStyles>
                 <Filter selectedFilters={props.activeFilters} filters={[Status.Draft, Status.Paid, Status.Pending]} handleUpdate={(updatedFilters: Status[]) => props.handleFilterUpdate(updatedFilters)} />
                 <StyledButton 
-                    text={"New Invoice"} 
+                    text={size.width && size.width <= 500 ? "New": "New Invoice"} 
                     type={buttonType} 
                     onClick={props.handleNewInvoice} 
                 />
