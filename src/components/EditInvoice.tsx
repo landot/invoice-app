@@ -34,7 +34,7 @@ import { selectInvoices } from "../../features/invoice/invoiceSlice";
 
 export interface InputError {
   field: string;
-  description: string
+  description: string;
 }
 
 export function EditInvoice(props: {
