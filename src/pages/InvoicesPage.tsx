@@ -1,23 +1,14 @@
-import styled from "styled-components"
 import { Header } from "../components/Header"
 import { Invoices } from "../components/Invoices"
 import { Status } from "../data/types/Data"
 import { Page } from "./Page"
-import { InvoicesStyles } from "../styles/components/Invoices.styles"
 import { useState } from "react"
 import { EditInvoice } from "../components/EditInvoice"
 import { LeftOverlay } from "../components/LeftOverlay"
 import { useAppSelector } from '../../app/hooks';
 import { selectInvoices } from "../../features/invoice/invoiceSlice"
 import { NoInvoice } from "../components/NoInvoice"
-
-export const InvoicesPageStyles = styled.div`
-    height: 100%;
-
-    ${InvoicesStyles} {
-        margin-top: 60px;
-    }
-`
+import { InvoicesPageStyles } from "../styles/pages/InvoicesPage.styles"
 
 export function InvoicesPage() {
     const invoices = useAppSelector(selectInvoices);
