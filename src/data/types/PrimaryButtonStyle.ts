@@ -1,8 +1,9 @@
 import { ButtonColor } from "../../components/Button";
+import { theme } from "../../styles/themeProvider";
 
 export const PrimaryButtonStyle: ButtonColor = {
-    textColor: '#FFFFFF',
-    backgroundColor: '#7C5DFA',
-    hoverTextColor: '#FFFFFF',
-    hoverBackgroundColor: '#9277FF',
+    textColor: theme.colors.white,
+    backgroundColor: theme.colors.brightPurple,
+    hoverTextColor: theme.colors.white,
+    hoverBackgroundColor: theme.colors.lightPurple,
 }

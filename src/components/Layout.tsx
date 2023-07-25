@@ -10,7 +10,7 @@ export const LayoutStyles = styled.div`
     display: grid;
     grid-template-columns: 103px 1fr;
     grid-template-rows: 1fr;
-    background: #F8F8FB;
+    background: ${({ theme }) => theme.colors.lightGray};
 
     ${SidebarStyles} {
         position: sticky;

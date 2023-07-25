@@ -1,8 +1,9 @@
 import { ButtonColor } from "../../components/Button";
+import { theme } from "../../styles/themeProvider";
 
 export const DestructiveButtonStyle: ButtonColor = {
-    textColor: '#FFFFFF',
-    backgroundColor: '#EC5757',
-    hoverTextColor: '#FFFFFF',
-    hoverBackgroundColor: '#FF9797',
+    textColor: theme.colors.white,
+    backgroundColor: theme.colors.red,
+    hoverTextColor: theme.colors.white,
+    hoverBackgroundColor: theme.colors.lightRed,
 }

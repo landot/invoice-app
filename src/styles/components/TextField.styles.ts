@@ -37,7 +37,7 @@ export const TextInputStyles = styled.input<{$error?: boolean}>`
     background: ${({ theme }) => theme.colors.white};
 
     &::placeholder {
-        color: #0C0E16;
+        color: ${({ theme }) => theme.colors.black};
         opacity: 0.4;
     }
 

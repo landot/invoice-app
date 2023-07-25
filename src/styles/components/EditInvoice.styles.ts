@@ -18,7 +18,7 @@ export const EditBillStyles = styled.div`
     flex-direction: column;
     
     ${HeadingS} {
-        color: #7C5DFA;
+        color: ${({ theme }) => theme.colors.brightPurple};
     }
 `
 

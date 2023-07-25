@@ -66,7 +66,7 @@ export const ItemTableStyles = styled.table`
 
 export const ItemErrorStyles = styled.div`
     ${BodyText} {
-        color: #EC5757;
+        color: ${({ theme }) => theme.colors.red};
     }
 `
 
@@ -76,10 +76,11 @@ export const ItemTableRow = styled.tr`
     }
 
     svg {
-        fill: #888EB0;
+        fill: ${({ theme }) => theme.colors.gray};
+
     }
 
     svg:hover {
-        fill: #EC5757;
+        fill: ${({ theme }) => theme.colors.red};
     }
 `

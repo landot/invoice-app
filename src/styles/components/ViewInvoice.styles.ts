@@ -24,7 +24,7 @@ export const ViewInvoiceHeaderRightStyles = styled.div`
     @media (max-width: 600px) {
         width: 100%;
         justify-content: center;
-        background: #FFFFFF;
+        background: ${({ theme }) => theme.colors.white};
         padding: 20px;
         margin-top: 40px;
     }
