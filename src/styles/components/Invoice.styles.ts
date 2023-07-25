@@ -23,7 +23,7 @@ export const InvoiceStatusCellStyles = styled.td`
     justify-content: flex-end;
 `
 export const InvoiceNavigationStyles = styled.td`
-    width: 5px;
+    width: 30px;
     text-align: right;
 `
 
@@ -31,17 +31,12 @@ export const InvoiceRowStyles = styled.tr`
     ${BoxCss}
     height: fit-content;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 16px 32px;
     cursor: pointer;
 
     ${BodyText} {
         color: ${({ theme }) => theme.colors.gray};
-    }
-
-    td {
-        width: fit-content;
     }
 
     @media (max-width: 500px) {
