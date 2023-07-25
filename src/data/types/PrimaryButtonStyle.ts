@@ -1,5 +1,5 @@
 import { ButtonColor } from "../../components/Button";
-import { theme } from "../../styles/themeProvider";
+import { theme } from "../../styles/theme";
 
 export const PrimaryButtonStyle: ButtonColor = {
     textColor: theme.colors.white,
