@@ -24,6 +24,7 @@ function FilterDropdownItem(props: {
     <FilterDropdownItemStyles onClick={() => props.onClick()}>
       <input
         readOnly
+        data-testid={props.name}
         id={props.name}
         type="checkbox"
         checked={props.selected}
@@ -66,7 +67,7 @@ export function Filter(props: {
         <FilterButtonStyles>
           {size.width && size.width <= 500 ? "Filter" : "Filter by status"}
         </FilterButtonStyles>
-        <ArrowStyles $up={showOptions} />
+        <ArrowStyles $up={showOptions} data-testid='filter-dropdown' />
       </FilterButtonContainerStyles>
       {showOptions && (
         <FilterDropdownStyles>

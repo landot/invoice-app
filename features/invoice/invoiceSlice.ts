@@ -13,15 +13,6 @@ const initialState: InvoiceState = {
   status: "loading",
 };
 
-// export const fetchUserById = createAsyncThunk(
-//   'kanban/fetchKanbanData',
-//   async () => {
-//     const response = await getKanban();
-//     console.log('response', response)
-//     return response;
-//   }
-// )
-
 export const invoiceSlice = createSlice({
   name: "invoices",
   initialState,
@@ -55,20 +46,6 @@ export const invoiceSlice = createSlice({
       state.value = newValue;
     },
   },
-  //   extraReducers(builder) {
-  //     builder
-  //       .addCase(fetchUserById.pending, (state) => {
-  //         state.status = 'loading';
-  //       })
-  //       .addCase(fetchUserById.fulfilled, (state, action) => {
-  //         state.status = 'idle';
-  //         state.value = action.payload;
-  //       })
-  //       .addCase(fetchUserById.rejected, (state, action) => {
-  //         state.status = 'failed';
-  //         console.log('error', action.error.message)
-  //       })
-  //   }
 });
 
 export const { addInvoice, editInvoice, deleteInvoice, markAsPaid } =
