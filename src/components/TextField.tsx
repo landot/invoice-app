@@ -53,7 +53,7 @@ export function TextField(props: {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             handleChange(e, "text")
           }
-          data-testid={"text-input"}
+          data-testid="text-input"
         />
       )}
       {props.inputType === "int" && (
@@ -67,7 +67,7 @@ export function TextField(props: {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             handleChange(e, "int")
           }
-          data-testid={"text-input"}
+          data-testid="int-input"
         />
       )}
       {props.inputType === "number" && (
@@ -82,7 +82,7 @@ export function TextField(props: {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             handleChange(e, "number")
           }
-          data-testid={"text-input"}
+          data-testid="number-input"
         />
       )}
     </TextFieldStyles>

@@ -108,7 +108,7 @@ export function ItemList(props: {
         </thead>
         <tbody>
           {items.map((item, index) => (
-            <ItemTableRow key={index}>
+            <ItemTableRow key={index} data-testid='item-table-row'>
               <ItemNameCellStyles>
                 <TextField
                   inputType="text"
@@ -148,11 +148,11 @@ export function ItemList(props: {
                   errorText=""
                 />
               </ItemPriceCellStyles>
-              <ItemTotalCellStyles>
+              <ItemTotalCellStyles data-testid='item-total'>
                 <HeadingS>{convertToCostString(item.total)}</HeadingS>
               </ItemTotalCellStyles>
               <ItemDeleteCellStyles>
-                <DeleteIcon onClick={() => handleItemDelete(index)} />
+                <DeleteIcon onClick={() => handleItemDelete(index)} data-testid='delete-icon'/>
               </ItemDeleteCellStyles>
             </ItemTableRow>
           ))}
