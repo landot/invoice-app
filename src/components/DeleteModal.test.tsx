@@ -22,7 +22,7 @@ describe("DeleteModal", () => {
             <DeleteModal id={"asdf"} hideModal={mockOnCancelClick} />
           </BrowserRouter>
         </Theme>
-      </Provider>,
+      </Provider>
     );
     const text = getByText(
       "Are you sure you want to delete invoice #asdf? This action cannot be undone.",
