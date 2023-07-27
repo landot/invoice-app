@@ -8,8 +8,8 @@ export function Sidebar() {
 
   return (
     <SidebarStyles>
-      <Logo onClick={() => navigate("/")} />
-      <img src={avatar} alt="profile image" />
+      <Logo onClick={() => navigate("/")} data-testid='logo' />
+      <img src={avatar} alt="profile image" data-testid='profile' />
     </SidebarStyles>
   );
 }
