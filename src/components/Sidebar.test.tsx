@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { vi } from 'vitest';
 import { store } from '../../app/store';
 import Theme from '../styles/themeProvider';
 import { Sidebar } from './Sidebar';

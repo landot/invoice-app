@@ -7,7 +7,7 @@ import Theme from '../styles/themeProvider';
 
 describe('Filter component', () => {
   test('should render the "Filter by status" button', () => {
-    render(<Filter selectedFilters={[]} filters={[]} handleUpdate={() => {}} />);
+    render(<Filter selectedFilters={[]} filters={[]} handleUpdate={() => null} />);
     const filterButton = screen.getByText('Filter by status');
     expect(filterButton).toBeInTheDocument();
   });
@@ -15,7 +15,7 @@ describe('Filter component', () => {
   test('should render the "Filter" button when window width is less than or equal to 500', () => {
     // Mock the window size to be less than or equal to 500
     Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 500 });
-    render(<Filter selectedFilters={[]} filters={[]} handleUpdate={() => {}} />);
+    render(<Filter selectedFilters={[]} filters={[]} handleUpdate={() => null} />);
     const filterButton = screen.getByText('Filter');
     expect(filterButton).toBeInTheDocument();
   });
