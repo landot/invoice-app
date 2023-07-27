@@ -21,7 +21,10 @@ export function Invoice(props: { invoice: InvoiceData }) {
   const navigate = useNavigate();
 
   return (
-    <InvoiceRowStyles onClick={() => navigate(`/${props.invoice.id}`)}>
+    <InvoiceRowStyles 
+      onClick={() => navigate(`/${props.invoice.id}`)}
+      data-testid={'invoice-row'}
+    >
       <InvoiceIdCellStyles>
         <HeadingS>#{props.invoice.id}</HeadingS>
       </InvoiceIdCellStyles>

@@ -41,7 +41,7 @@ describe("DeleteModal", () => {
             <DeleteModal id={"asdf"} hideModal={mockOnCancelClick} />
           </BrowserRouter>
         </Theme>
-      </Provider>,
+      </Provider>
     );
     const cancelButton = getByText("Cancel");
     fireEvent.click(cancelButton);

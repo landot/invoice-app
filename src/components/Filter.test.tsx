@@ -30,7 +30,7 @@ describe('Filter component', () => {
             filters={filters} 
             handleUpdate={mockUpdate}        
         />
-      </Theme>,
+      </Theme>
     );
     const dropdown = getByTestId("filter-dropdown");
     expect(dropdown).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe('Filter component', () => {
               filters={filters} 
               handleUpdate={mockUpdate}        
           />
-        </Theme>,
+        </Theme>
     );
     const dropdown = getByTestId("filter-dropdown");
     expect(dropdown).toBeInTheDocument();
