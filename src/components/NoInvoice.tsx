@@ -6,7 +6,7 @@ import { NoInvoiceStyles } from "../styles/components/NoInvoice.styles";
 export function NoInvoice() {
   return (
     <NoInvoiceStyles>
-      <NoInvoiceSvg />
+      <NoInvoiceSvg data-testid='no-invoice-svg'/>
       <HeadingM>There is nothing here</HeadingM>
       <BodyText>
         Create an invoice by clicking the <b>New Invoice</b> button and get
