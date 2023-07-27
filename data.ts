@@ -12,9 +12,9 @@ export const sampleData: InvoiceData[] = [
     status: Status.Paid,
     senderAddress: {
       street: "19 Union Terrace",
-      city: "London",
-      postCode: "E1 3EZ",
-      country: "United Kingdom",
+      city: "Seattle",
+      postCode: "98104",
+      country: "United State",
     },
     clientAddress: {
       street: "106 Kendell Street",
