@@ -127,4 +127,54 @@ describe('ItemList component', () => {
             },
         ]);
       });
+
+      it('should show "an item must be added" error text when showErrors=true and no items exist', () => {
+        const handleItemUpdate = vi.fn();
+    
+        const { getByText } = render(
+            <Theme>
+                <ItemList items={[]} showErrors={true} handleItemUpdate={handleItemUpdate} />
+            </Theme>
+        );
+        const errorText = getByText('- An item must be added');
+        expect(errorText).toBeInTheDocument();
+      });
+
+      it('should show "values must be greater than 0" error text when showErrors=true and item values are <= 0', () => {
+        const handleItemUpdate = vi.fn();
+    
+        const { getByText } = render(
+            <Theme>
+                <ItemList items={[
+                    {
+                        name: 'test',
+                        quantity: 0,
+                        price: 0,
+                        total: 0
+                    }
+                ]} showErrors={true} handleItemUpdate={handleItemUpdate} />
+            </Theme>
+        );
+        const errorText = getByText('- values must be greater than 0');
+        expect(errorText).toBeInTheDocument();
+      });
+
+      it('should show "All fields must be added" error text when showErrors=true and inputs are empty', () => {
+        const handleItemUpdate = vi.fn();
+    
+        const { getByText } = render(
+            <Theme>
+                <ItemList items={[
+                    {
+                        name: '',
+                        quantity: NaN,
+                        price: NaN,
+                        total: NaN,
+                    }
+                ]} showErrors={true} handleItemUpdate={handleItemUpdate} />
+            </Theme>
+        );
+        const errorText = getByText('- All fields must be added');
+        expect(errorText).toBeInTheDocument();
+      });
 });
