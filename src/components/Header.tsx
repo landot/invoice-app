@@ -30,9 +30,9 @@ export function Header(props: {
       <TitleStyles>
         <HeadingL>Invoices</HeadingL>
         {props.invoices.length > 0 ? (
-          <BodyText>There are {props.invoices.length} invoices</BodyText>
+          <BodyText data-testid='invoices-shown'>There are {props.invoices.length} invoices</BodyText>
         ) : (
-          <BodyText>No invoices</BodyText>
+          <BodyText data-testid='no-invoices'>No invoices</BodyText>
         )}
       </TitleStyles>
       <ActionStyles>
