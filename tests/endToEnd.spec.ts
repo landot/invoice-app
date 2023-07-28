@@ -5,9 +5,6 @@ import { InvoicesPage } from './pageObjects/InvoicesPage';
 
 const url = 'http://localhost:5173';
 
-// todo take edit invoice selectors out of InvoicesPage into it's own page object file
-// add better data-testids for edit invoice page
-
 test('InvoicesPage - Invoices list can be filtered', async ({ page }) => {
   const invoicesPage = new InvoicesPage(page);
   await invoicesPage.navigateTo();
@@ -60,12 +57,11 @@ test('ViewInvoicePage - User can go back', async ({ page }) => {
 
 test('ViewInvoicePage - User can edit an invoice', async ({ page }) => {
   const viewInvoicePage = new ViewInvoicePage(page);
-  const invoicesPage = new InvoicesPage(page);
   viewInvoicePage.navigateTo(sampleData[0].id);
   await viewInvoicePage.clickEdit();
   await page.getByTestId('text-input').first().clear();
   await page.getByTestId('text-input').first().type('test');
-  await invoicesPage.saveChanges.click();
+  await viewInvoicePage.editInvoiceModal.saveChanges.click();
   expect(await page.getByText('test').count()).toBe(1);
 });
 
@@ -74,7 +70,7 @@ test('InvoicesPage - User can add draft invoices', async ({ page }) => {
   await invoicesPage.navigateTo();
   expect(await invoicesPage.invoice.count()).toEqual(7);
   await invoicesPage.newInvoiceButton.click();
-  await invoicesPage.newItemButton.click();
+  await invoicesPage.newInvoiceModal.newItemButton.click();
   const textInputs = await page.getByTestId('text-input').all();
   for (const input of textInputs) {
     await input.type('test');
@@ -87,7 +83,7 @@ test('InvoicesPage - User can add draft invoices', async ({ page }) => {
   for (const input of numberInputs) {
     await input.type('1.50');
   }
-  await invoicesPage.saveAsDraft.click();
+  await invoicesPage.newInvoiceModal.saveAsDraft.click();
   expect(await invoicesPage.invoice.count()).toEqual(8);
 });
 
@@ -96,7 +92,7 @@ test('InvoicesPage - User can add pending invoices', async ({ page }) => {
   await invoicesPage.navigateTo();
   expect(await invoicesPage.invoice.count()).toEqual(7);
   await invoicesPage.newInvoiceButton.click();
-  await invoicesPage.newItemButton.click();
+  await invoicesPage.newInvoiceModal.newItemButton.click();
   const textInputs = await page.getByTestId('text-input').all();
   for (const input of textInputs) {
     await input.type('test');
@@ -109,6 +105,6 @@ test('InvoicesPage - User can add pending invoices', async ({ page }) => {
   for (const input of numberInputs) {
     await input.type('1.50');
   }
-  await invoicesPage.saveAndSend.click();
+  await invoicesPage.newInvoiceModal.saveAndSend.click();
   expect(await invoicesPage.invoice.count()).toEqual(8);
 });

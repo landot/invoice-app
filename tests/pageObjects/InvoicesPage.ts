@@ -1,4 +1,5 @@
 import { Locator, Page } from '@playwright/test';
+import { EditInvoiceModal } from './editInvoice';
 
 export class InvoicesPage {
   readonly page: Page;
@@ -11,12 +12,7 @@ export class InvoicesPage {
   readonly noInvoicesMessage: Locator;
   readonly noInvoicesBodySvg: Locator;
   readonly newInvoiceButton: Locator;
-  readonly newItemButton: Locator;
-  readonly deleteItemButton: Locator;
-  readonly saveAsDraft: Locator;
-  readonly saveAndSend: Locator;
-  readonly saveChanges: Locator;
-  readonly cancel: Locator;
+  readonly newInvoiceModal: EditInvoiceModal;
 
   constructor(page: Page) {
     this.page = page;
@@ -29,12 +25,7 @@ export class InvoicesPage {
     this.noInvoicesMessage = page.getByTestId('no-invoices');
     this.noInvoicesBodySvg = page.getByTestId('no-invoice-svg');
     this.newInvoiceButton = page.getByTestId('new-invoice-button');
-    this.newItemButton = page.getByTestId('add-item');
-    this.deleteItemButton = page.getByTestId('new-invoice-button');
-    this.saveAsDraft = page.getByTestId('save-as-draft');
-    this.saveAndSend = page.getByTestId('save-and-send');
-    this.saveChanges = page.getByTestId('save-changes');
-    this.cancel = page.getByTestId('cancel');
+    this.newInvoiceModal = new EditInvoiceModal(page);
   }
 
   async navigateTo() {

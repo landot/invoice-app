@@ -1,4 +1,5 @@
 import { Locator, Page } from '@playwright/test';
+import { EditInvoiceModal } from './editInvoice';
 
 export class ViewInvoicePage {
   readonly page: Page;
@@ -9,6 +10,7 @@ export class ViewInvoicePage {
   readonly status: Locator;
   readonly deleteModalDelete: Locator;
   readonly deleteModalCancel: Locator;
+  readonly editInvoiceModal: EditInvoiceModal;
 
   constructor(page: Page) {
     this.page = page;
@@ -19,6 +21,7 @@ export class ViewInvoicePage {
     this.status = page.getByTestId('status');
     this.deleteModalDelete = page.getByTestId('delete-modal-delete');
     this.deleteModalCancel = page.getByTestId('delete-modal-cancel');
+    this.editInvoiceModal = new EditInvoiceModal(page);
   }
 
   async navigateTo(invoiceId: string) {
