@@ -44,6 +44,7 @@ export function Header(props: {
           }
         />
         <StyledButton
+          testId="new-invoice-button"
           text={size.width && size.width <= 500 ? "New" : "New Invoice"}
           type={buttonType}
           onClick={props.handleNewInvoice}

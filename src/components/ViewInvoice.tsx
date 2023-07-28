@@ -54,7 +54,7 @@ export function ViewInvoice(props: {
       <GoBackStyles>
         <BackIcon />
         <a onClick={props.handleGoBack}>
-          <HeadingS>Go back</HeadingS>
+          <HeadingS data-testid='go-back'>Go back</HeadingS>
         </a>
       </GoBackStyles>
       <ViewInvoiceHeaderStyles>
@@ -65,6 +65,7 @@ export function ViewInvoice(props: {
         {size.width && size.width > 600 && (
           <ViewInvoiceHeaderRightStyles>
             <StyledButton
+              testId='edit'
               text="Edit"
               type={{
                 includeAddIcon: false,
@@ -74,6 +75,7 @@ export function ViewInvoice(props: {
               onClick={() => props.handleEdit(props.invoice.id)}
             />
             <StyledButton
+              testId='delete'
               text="Delete"
               type={{
                 includeAddIcon: false,
@@ -83,6 +85,7 @@ export function ViewInvoice(props: {
               onClick={() => props.handleDelete(props.invoice.id)}
             />
             <StyledButton
+              testId='mark-as-paid'
               text="Mark as Paid"
               type={{
                 includeAddIcon: false,
@@ -187,6 +190,7 @@ export function ViewInvoice(props: {
       {size.width && size.width <= 600 && (
         <ViewInvoiceHeaderRightStyles>
           <StyledButton
+            testId='edit'
             text="Edit"
             type={{
               includeAddIcon: false,
@@ -196,6 +200,7 @@ export function ViewInvoice(props: {
             onClick={() => props.handleEdit(props.invoice.id)}
           />
           <StyledButton
+            testId='delete'
             text="Delete"
             type={{
               includeAddIcon: false,
@@ -205,6 +210,7 @@ export function ViewInvoice(props: {
             onClick={() => props.handleDelete(props.invoice.id)}
           />
           <StyledButton
+            testId='mark-as-paid'
             text="Mark as Paid"
             type={{
               includeAddIcon: false,

@@ -159,6 +159,7 @@ export function ItemList(props: {
         </tbody>
       </ItemTableStyles>
       <StyledButton
+        testId="add-item"
         text="+ Add New Item"
         type={{
           ...SecondaryButtonStyle,

@@ -29,6 +29,7 @@ export function DeleteModal(props: { id: string; hideModal: () => void }) {
       </TextVariant>
       <DeleteModalActionsStyles>
         <StyledButton
+          testId="delete-modal-cancel"
           text="Cancel"
           type={{
             includeAddIcon: false,
@@ -38,6 +39,7 @@ export function DeleteModal(props: { id: string; hideModal: () => void }) {
           onClick={() => props.hideModal()}
         />
         <StyledButton
+          testId="delete-modal-delete"
           text="Delete"
           type={{
             includeAddIcon: false,

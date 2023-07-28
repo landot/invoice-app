@@ -21,11 +21,12 @@ export function StyledButton(props: {
   text: string;
   type: ButtonType;
   onClick: () => void;
+  testId?: string;
 }) {
   return (
     <ButtonContainerStyles
       $styles={props.type}
-      data-testid={"styled-button"}
+      data-testid={props.testId}
       onClick={props.onClick}
     >
       {props.type.includeAddIcon && (

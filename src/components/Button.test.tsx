@@ -34,6 +34,7 @@ describe("Button", () => {
     const { getByTestId } = render(
       <Theme>
         <StyledButton
+          testId='test-button'
           text={"test"}
           type={{
             includeAddIcon: true,
@@ -47,7 +48,7 @@ describe("Button", () => {
         />
       </Theme>,
     );
-    const buttonContainer = getByTestId("styled-button");
+    const buttonContainer = getByTestId("test-button");
     fireEvent.click(buttonContainer);
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });

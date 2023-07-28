@@ -438,6 +438,7 @@ export function EditInvoice(props: {
           {props.type === "edit" && (
             <>
               <StyledButton
+                testId='cancel'
                 text="Cancel"
                 type={{
                   includeAddIcon: false,
@@ -447,6 +448,7 @@ export function EditInvoice(props: {
                 onClick={props.hideModal}
               />
               <StyledButton
+                testId='save-changes'
                 text="Save Changes"
                 type={{
                   includeAddIcon: false,
@@ -460,6 +462,7 @@ export function EditInvoice(props: {
           {props.type === "add" && (
             <AddActionButtonStyles>
               <StyledButton
+                testId='discard'
                 text="Discard"
                 type={{
                   includeAddIcon: false,
@@ -470,6 +473,7 @@ export function EditInvoice(props: {
               />
               <AddSaveButtonStyles>
                 <StyledButton
+                  testId="save-as-draft"
                   text="Save as Draft"
                   type={{
                     includeAddIcon: false,
@@ -479,6 +483,7 @@ export function EditInvoice(props: {
                   onClick={handleDraft}
                 />
                 <StyledButton
+                  testId="save-and-send"
                   text="Save & Send"
                   type={{
                     includeAddIcon: false,

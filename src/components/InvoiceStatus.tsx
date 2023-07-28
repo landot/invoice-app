@@ -6,7 +6,7 @@ import {
 
 export function InvoiceStatus(props: { type: "paid" | "pending" | "draft" }) {
   return (
-    <StyledInvoice $type={props.type}>
+    <StyledInvoice $type={props.type} data-testid='status'>
       <Circle $type={props.type} />
       <HeadingS>{props.type}</HeadingS>
     </StyledInvoice>
