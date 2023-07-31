@@ -155,6 +155,7 @@ export const InvoiceSectionStyles = styled.div`
 export const GoBackStyles = styled.div`
   display: flex;
   align-items: center;
+  width: fit-content;
 
   &:hover {
     cursor: pointer;

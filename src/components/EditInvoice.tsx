@@ -21,16 +21,15 @@ import {
   AddSaveButtonStyles,
   EditContainerStyles,
 } from "../styles/components/EditInvoice.styles";
-import { getNewIdWithoutDuplicates } from "../utils/getNewIdWithoutDuplicates";
 import { DarkButtonStyle } from "../data/types/DarkButtonStyles";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useAppDispatch } from "../../app/hooks";
 import { addInvoice, editInvoice } from "../../features/invoice/invoiceSlice";
 import useWindowSize from "../utils/useWindowSize";
 import { Sidebar } from "./Sidebar";
 import { ReactComponent as BackIcon } from "../assets/icon-arrow-left.svg";
 import { GoBackStyles } from "../styles/components/ViewInvoice.styles";
 import { useNavigate } from "react-router-dom";
-import { selectInvoices } from "../../features/invoice/invoiceSlice";
+import { generateRandomId } from "../utils/generateRandomId";
 
 export interface InputError {
   field: string;
@@ -44,9 +43,8 @@ export function EditInvoice(props: {
 }) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const invoices = useAppSelector(selectInvoices);
   const emptyInvoice: InvoiceData = {
-    id: getNewIdWithoutDuplicates(invoices.map((invoice) => invoice.id)),
+    id: generateRandomId(),
     createdAt: new Date().getTime(),
     paymentTerms: 1,
     paymentDue: new Date().getTime() + 86400000,
@@ -240,9 +238,10 @@ export function EditInvoice(props: {
       {size.width && size.width <= 500 && <Sidebar />}
       <EditStyles>
         {size.width && size.width <= 500 && (
-          <GoBackStyles>
+          <GoBackStyles >
             <BackIcon />
             <a
+              data-testid={'go-back'}
               onClick={() => {
                 navigate("/");
                 props.hideModal();
