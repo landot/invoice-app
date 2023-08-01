@@ -1,24 +1,26 @@
-# Frontend Mentor - Invoice app
+# Frontend Mentor - Invoice app solution
 
-![Design preview for the Invoice app coding challenge](./preview.jpg)
+This is a solution to the [Invoice app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for purchasing this premium Frontend Mentor coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Test coverage](#test-coverage)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Suggested improvements](#suggested-improvements)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects. These premium challenges are perfect portfolio pieces, so please feel free to use what you create in your portfolio to show others.
+## Overview
 
-**To do this challenge, you need a strong understanding of HTML, CSS, and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this invoicing application and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-We provide the data in a local `data.json` file, so use that to populate the content on first load. If you want to take it up a notch, feel free to build this as a full-stack application!
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
@@ -26,85 +28,85 @@ Your users should be able to:
 - Receive form validations when trying to create/edit an invoice
 - Save draft invoices, and mark pending invoices as paid
 - Filter invoices by status (draft/pending/paid)
-- Toggle light and dark mode
-- **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Test Coverage
 
-### Expected Behaviour
+This project leverages 3 different testing strategies. 
 
-- Creating an invoice
-  - When creating a new invoice, an ID needs to be created. Each ID should be 2 random uppercased letters followed by 4 random numbers.
-  - Invoices can be created either as drafts or as pending. Clicking "Save as Draft" should allow the user to leave any form field blank, but should create an ID if one doesn't exist and set the status to "draft". Clicking "Save & Send" should require all forms fields to be filled in, and should set the status to "pending".
-  - Changing the Payments Terms field should set the `paymentDue` property based on the `createdAt` date plus the numbers of days set for the payment terms.
-  - The `total` should be the sum of all items on the invoice.
-- Editing an invoice
-  - When saving changes to an invoice, all fields are required when the "Save Changes" button is clicked. If the user clicks "Cancel", any unsaved changes should be reset.
-  - If the invoice being edited is a "draft", the status needs to be updated to "pending" when the "Save Changes" button is clicked. All fields are required at this stage.
-- Users should be able to mark invoices as paid by clicking the "Mark as Paid" button. This should change the invoice's status to "paid".
-- Users should receive a confirmation modal when trying to delete invoices.
-- Feel free not to add custom styling for the date and dropdown form fields. The designs for those fields are optional extras and are mostly for illustration purposes.
+Storybook: Components are initially created in isolation with storybook stories. These stories are used to spot check the components as they are being created. We currently do not have storybook-specific tests.
 
-## Where to find everything
+Unit: >90% unit test line coverage using React Testing Library. Test files are within the associated features/invoice folder for Redux. React component tests are within the src/components folder.
 
-Your task is to build out the project to the design file provided. We provide both Sketch and Figma versions of the design, so you can choose which tool you prefer to use. You can download the design file on the platform. **Please be sure not to share them with anyone else.** The design download comes with a `README.md` file as well to help you get set up.
+E2E: Playwright UI tests (tests/endToEnd.spec.ts) exists for these main user flows:
+Invoices Page:
+1. User can filter invoices on the Invoice list
+1. User can click an invoice to load the view invoice page
+1. User can add a new draft invoice
+1. User can add a new pending invoice
 
-All the required assets for this project are in the `/assets` folder. The assets are already exported for the correct screen size and optimized. Some images are reusable at multiple screen sizes. So if you don't see an image in a specific folder, it will typically be in another folder for that page.
+View Invoice Page:
+1. User can mark an invoice as paid
+1. User can delete an invoice
+1. User can go back to the Invoices page
+1. User can edit an invoice
 
-The design system in the design file will give you more information about the various colors, fonts, and styles used in this project.
+### Screenshots
+![](./screenshots/desktop-invoices.png)
+![](./screenshots/desktop-filter.png)
+![](./screenshots/desktop-new-invoice.png)
+![](./screenshots/desktop-view-invoice.png)
+![](./screenshots/desktop-edit-invoice.png)
+![](./screenshots/desktop-delete.png)
+![](./screenshots/mobile-invoices.png)
+![](./screenshots/mobile-filters.png)
+![](./screenshots/mobile-new-invoice.png)
 
-## Building your project
+### Links
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+- Solution URL: [https://github.com/landot/invoice-app](https://github.com/landot/invoice-app)
+- Live Site URL: [https://timothyl-portfolio-invoice-webapp.netlify.app/](https://timothyl-portfolio-invoice-webapp.netlify.app/)
 
-1. Separate the `starter-code` from the rest of this project and rename it to something meaningful for you. Initialize the codebase as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/). **⚠️ IMPORTANT ⚠️: There are already a couple of `.gitignore` files in this project. Please do not remove them or change the content of the files. If you create a brand new project, please use the `.gitignore` files provided in your new codebase. This is to avoid the accidental upload of the design files to GitHub. With these premium challenges, please be sure not to share the design files in your GitHub repo. Thanks!**
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+## My process
 
-## Deploying your project
+### Built with
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+- Styled Components
+- React
+- React Router
+- React Testing Library
+- Redux
+- Storybook
+- Playwright
+- Vite
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+### What I learned
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+What I have learned:
+I discovered that handling state and validation for larger forms can be challenging. If I were to redo this project, I would opt for a solution like react-hook-form to make the process more manageable.
 
-## Create a custom `README.md`
+Additionally, this project marked one of my initial attempts to achieve over 90% unit test coverage in my portfolio. However, I made the mistake of postponing the unit tests until the end of the project. As a result, I had to spend more time after completion to get them working properly, which could have been avoided if I had created the unit tests for each component in Storybook as I finished them.
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+I am relatively new to using Playwright for end-to-end tests, as I have primarily worked with Selenium and TestCafe in the past. Nonetheless, I have found Playwright's debugger to be quite handy, and the test execution speed has pleasantly surprised me, being significantly faster than what I was accustomed to with TestCafe.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+### Continued development
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+Areas for improvement:
+Having gained confidence in building components with React, my upcoming goals include mastering newer frameworks such as Svelte, Vue, Gatsby, and NextJs.
 
-## Submitting your solution
+Additionally, I am keen on exploring alternative state management solutions to Redux, with Zustand being one of the options I will investigate.
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+Looking ahead, I intend to ensure that all my future projects incorporate unit tests right alongside the development of their components.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+### Suggested improvements
+Here are my suggested improvements for enhancing the overall design of this invoice project:
 
-**⚠️ IMPORTANT ⚠️: With these premium challenges, please be sure not to upload the design files to GitHub when you're submitting to the platform and sharing it around. If you've created a brand new project, the easiest way to do that is to copy across the `.gitignore` provided in this starter project.**
+1. Invoice statuses: The initial designs present a few shortcomings. While they allow you to create new invoices with draft or pending status, there is no provision to change an invoice from draft to pending status.
+1. Due dates: The date options are quite limited, offering only 1, 7, or 30 days in the future for due dates. In a standard corporate setting, it's unlikely that invoices would be fulfilled within just 1 day of creation. Expanding the due date options to accommodate more realistic timeframes would be beneficial.
+1. Filtering and sorting: While filtering by status is available, I suggest enhancing the filtering capabilities to allow users to filter invoices by customer and geographic location as well. Additionally, incorporating sorting functionality, enabling users to sort invoices in ascending and descending order for each column on the invoices page, would greatly improve the user experience.
+1. Pagination: The figma files lack designs for handling pagination. In real-world scenarios, most businesses will have a large number of invoices, making it impractical to display them all on a single screen. Implementing pagination and ensuring it works seamlessly with filtering and sorting would significantly enhance the usability of the page.
 
-## Sharing your solution
+## Author
 
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack).
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-**Have fun building!** 🚀
+- Portfolio Website - [https://timothyl-portfolio.netlify.app/](https://timothyl-portfolio.netlify.app/)
+- github - [@landot](https://github.com/landot)
+- Frontend Mentor - [@landot](https://www.frontendmentor.io/profile/landot)
